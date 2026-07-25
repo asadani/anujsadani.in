@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anuj Sadani — People · Business · Technology</title>
-<meta name="description" content="Anuj Sadani — Principal SDE at Infrrd. I build AI systems and the teams that build them. 16+ years across engineering leadership and enterprise AI.">
+<meta name="description" content="Anuj Sadani — Principal SDE at Infrrd. I build AI systems and the teams that build them.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://anujsadani.in/">
 <meta property="og:title" content="Anuj Sadani — People · Business · Technology">
-<meta property="og:description" content="I build AI systems and the teams that build them. 16+ years across engineering leadership and enterprise AI.">
+<meta property="og:description" content="I build AI systems and the teams that build them. Engineering leadership and enterprise AI.">
 <meta property="og:image" content="https://anujsadani.in/assets/profile-pic.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -20,7 +20,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 <script>
-  // Set theme before first paint: saved choice wins, else OS preference.
   (function () {
     document.documentElement.classList.add('js');
     try {
@@ -38,10 +37,13 @@
     --border: #DDD9D0; --border-light: #EAE7E0;
     --text: #1A1714; --text-body: #3D3A35; --text-muted: #6B6760; --text-subtle: #9B9892;
     --accent: #C85C2D; --accent-light: #E8895D; --accent-bg: #FDF1EB; --accent-border: #F0C4A8;
-    --green: #2A7A4B; --blue: #2563A8;
+    --violet: #7C5CC8; --teal: #1F8A82;
+    --green: #2A7A4B;
     --shadow-sm: 0 1px 2px rgba(26,23,20,0.04), 0 2px 8px rgba(200,92,45,0.05);
-    --shadow-md: 0 4px 12px rgba(26,23,20,0.06), 0 12px 32px rgba(200,92,45,0.09);
-    --dot: rgba(200,92,45,0.16);
+    --shadow-md: 0 4px 14px rgba(26,23,20,0.07), 0 14px 36px rgba(200,92,45,0.10);
+    --shadow-lg: 0 10px 30px rgba(26,23,20,0.10), 0 30px 70px rgba(200,92,45,0.14);
+    --dot: rgba(200,92,45,0.15);
+    --grain: 0.032;
     --nvidia: #76B900; --dh: #E00024; --infrrd: #00A651;
     --serif: 'Newsreader', Georgia, serif;
     --sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -53,10 +55,13 @@
     --border: #332C24; --border-light: #2A241D;
     --text: #F2EEE7; --text-body: #D8D2C8; --text-muted: #A39C90; --text-subtle: #7A7468;
     --accent: #E8895D; --accent-light: #F0A079; --accent-bg: #2C1E14; --accent-border: #5A3826;
-    --green: #5FD699; --blue: #6FB0F0;
+    --violet: #A98CE8; --teal: #4FC7BC;
+    --green: #5FD699;
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.25);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.35);
+    --shadow-md: 0 4px 14px rgba(0,0,0,0.42), 0 14px 36px rgba(0,0,0,0.36);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.5), 0 30px 70px rgba(0,0,0,0.45);
     --dot: rgba(232,137,93,0.20);
+    --grain: 0.05;
     --nvidia: #9BE023; --dh: #FF5C73; --infrrd: #35D183;
     color-scheme: dark;
   }
@@ -66,386 +71,428 @@
   body {
     background: var(--bg); color: var(--text-body);
     font-family: var(--sans); font-size: 17px; line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    transition: background-color 0.35s ease, color 0.35s ease;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  /* Film grain over the whole page — keeps flat colour from looking sterile. */
+  body::after {
+    content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+    opacity: var(--grain);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   a { color: var(--accent); }
   ::selection { background: var(--accent); color: #fff; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
   /* ── NAV ───────────────────────────────────────────────── */
   nav {
     position: sticky; top: 0; z-index: 100;
     background: var(--surface);
-    background: color-mix(in srgb, var(--surface) 86%, transparent);
-    backdrop-filter: saturate(180%) blur(12px);
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    backdrop-filter: saturate(180%) blur(14px);
     border-bottom: 1px solid var(--border);
     height: 58px; padding: 0 clamp(16px, 4vw, 40px);
     display: flex; align-items: center; gap: 20px;
   }
   @supports not (backdrop-filter: blur(1px)) { nav { background: var(--surface); } }
-  .nav-brand {
-    display: inline-flex; align-items: center; gap: 10px;
-    text-decoration: none; color: var(--text); margin-right: auto;
-  }
+  .nav-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); margin-right: auto; }
   .monogram {
-    width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0;
-    background: var(--accent); color: #fff;
+    width: 29px; height: 29px; border-radius: 8px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #fff;
     font-family: var(--serif); font-size: 15px; font-weight: 600;
     display: grid; place-items: center; line-height: 1;
+    box-shadow: 0 2px 8px rgba(200,92,45,0.28);
   }
   .nav-name { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
-  .nav-links { display: flex; gap: 4px; }
+  .nav-links { display: flex; gap: 2px; }
   .nav-links a {
-    font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.04em;
-    color: var(--text-muted); text-decoration: none; text-transform: uppercase;
-    padding: 7px 11px; border-radius: 6px; transition: color 0.15s, background-color 0.15s;
+    position: relative; font-family: var(--mono); font-size: 11.5px; font-weight: 500;
+    letter-spacing: 0.05em; color: var(--text-muted); text-decoration: none;
+    text-transform: uppercase; padding: 8px 12px; border-radius: 6px; transition: color 0.18s;
   }
-  .nav-links a:hover { color: var(--accent); background: var(--accent-bg); }
+  .nav-links a::after {
+    content: ''; position: absolute; left: 12px; right: 12px; bottom: 4px; height: 1.5px;
+    background: var(--accent); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.28s cubic-bezier(.2,.8,.2,1);
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover::after { transform: scaleX(1); }
   .theme-toggle {
-    width: 34px; height: 34px; flex-shrink: 0; cursor: pointer;
-    background: var(--surface-tint); border: 1px solid var(--border); border-radius: 8px;
-    color: var(--text-muted); font-size: 14px; line-height: 1;
-    display: grid; place-items: center;
-    transition: color 0.15s, border-color 0.15s, transform 0.15s;
+    width: 35px; height: 35px; flex-shrink: 0; cursor: pointer; overflow: hidden;
+    background: var(--surface-tint); border: 1px solid var(--border); border-radius: 50%;
+    color: var(--text-muted); font-size: 14px; line-height: 1; display: grid; place-items: center;
+    transition: color 0.18s, border-color 0.18s, transform 0.4s cubic-bezier(.2,.8,.2,1);
   }
-  .theme-toggle:hover { color: var(--accent); border-color: var(--accent-border); transform: rotate(-12deg); }
-  .progress-track { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: transparent; }
-  .progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); transform: rotate(180deg) scale(1.08); }
+  .progress-track { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; }
+  .progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--violet)); }
 
-  /* ── LAYOUT ────────────────────────────────────────────── */
-  .wrap { max-width: 940px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 32px); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 32px); }
 
-  .section { padding: 76px 0; border-top: 1px solid var(--border-light); }
-  .sec-head { margin-bottom: 34px; }
-  .sec-num {
-    font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
-    color: var(--accent); display: block; margin-bottom: 8px;
+  .section { padding: 84px 0; }
+  .section + .section { border-top: 1px solid var(--border-light); }
+  .sec-head { margin-bottom: 40px; }
+  .sec-label {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
   }
+  .sec-label::before { content: ''; width: 22px; height: 1.5px; background: var(--accent); }
   .sec-title {
-    font-family: var(--serif); font-size: clamp(26px, 3.6vw, 34px); font-weight: 600;
-    letter-spacing: -0.02em; color: var(--text); line-height: 1.15;
+    font-family: var(--serif); font-size: clamp(28px, 4.2vw, 40px); font-weight: 600;
+    letter-spacing: -0.024em; color: var(--text); line-height: 1.12;
   }
-  .sec-sub { font-size: 15.5px; color: var(--text-muted); margin-top: 8px; max-width: 620px; }
+  .sec-sub { font-size: 15.5px; color: var(--text-muted); margin-top: 10px; max-width: 60ch; }
 
   /* ── HERO ──────────────────────────────────────────────── */
-  .hero { position: relative; overflow: hidden; padding: clamp(56px, 9vw, 96px) 0 8px; }
-  .hero::before {
-    content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  .hero { position: relative; overflow: hidden; padding: clamp(52px, 8vw, 88px) 0 clamp(40px, 6vw, 60px); }
+  .hero-dots {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
     background-image: radial-gradient(var(--dot) 1px, transparent 1px);
-    background-size: 22px 22px;
-    mask-image: radial-gradient(ellipse 70% 62% at 62% 24%, #000 0%, transparent 72%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 62% at 62% 24%, #000 0%, transparent 72%);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse 66% 60% at 68% 22%, #000 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 66% 60% at 68% 22%, #000 0%, transparent 70%);
   }
-  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: clamp(28px, 5vw, 56px); align-items: center; }
+  /* Slow-drifting colour wash behind the hero. */
+  .aurora { position: absolute; inset: -20% -10%; z-index: 0; pointer-events: none; filter: blur(70px); opacity: 0.55; }
+  .aurora span { position: absolute; display: block; border-radius: 50%; }
+  .aurora span:nth-child(1) {
+    width: 42vw; height: 42vw; top: -6%; right: 4%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 42%, transparent), transparent 68%);
+    animation: drift1 24s ease-in-out infinite;
+  }
+  .aurora span:nth-child(2) {
+    width: 34vw; height: 34vw; top: 26%; left: -4%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--violet) 34%, transparent), transparent 68%);
+    animation: drift2 30s ease-in-out infinite;
+  }
+  .aurora span:nth-child(3) {
+    width: 28vw; height: 28vw; bottom: -8%; left: 42%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--teal) 30%, transparent), transparent 68%);
+    animation: drift3 27s ease-in-out infinite;
+  }
+  @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-6%, 7%) scale(1.14); } }
+  @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(8%, -6%) scale(1.1); } }
+  @keyframes drift3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-7%, -8%) scale(1.18); } }
+
+  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: clamp(28px, 5vw, 60px); align-items: center; }
 
   .eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
     font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--accent);
-    background: var(--accent-bg); border: 1px solid var(--accent-border);
-    padding: 5px 12px; border-radius: 100px; margin-bottom: 20px;
+    background: color-mix(in srgb, var(--accent-bg) 80%, transparent);
+    border: 1px solid var(--accent-border);
+    padding: 5px 13px; border-radius: 100px; margin-bottom: 20px;
+    backdrop-filter: blur(6px);
   }
   .pulse {
     width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0;
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--green) 60%, transparent);
     animation: pulse 2.4s ease-out infinite;
   }
   @keyframes pulse {
     0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--green) 55%, transparent); }
-    70%  { box-shadow: 0 0 0 7px transparent; }
+    70%  { box-shadow: 0 0 0 8px transparent; }
     100% { box-shadow: 0 0 0 0 transparent; }
   }
 
   .hero h1 {
-    font-family: var(--serif); font-size: clamp(44px, 8vw, 74px); font-weight: 600;
-    line-height: 1.0; letter-spacing: -0.032em; color: var(--text); margin-bottom: 18px;
+    font-family: var(--serif); font-size: clamp(46px, 8.6vw, 82px); font-weight: 600;
+    line-height: 0.98; letter-spacing: -0.035em; color: var(--text); margin-bottom: 14px;
   }
+  .hero h1 .shine {
+    background: linear-gradient(100deg, var(--text) 24%, var(--accent) 44%, var(--accent-light) 52%, var(--text) 72%);
+    background-size: 260% 100%;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    animation: shine 7s ease-in-out infinite;
+  }
+  @keyframes shine { 0%, 100% { background-position: 130% 0; } 50% { background-position: -30% 0; } }
 
-  .pillars { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
-  .pillar {
-    font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--text-subtle);
-    transition: color 0.5s ease, transform 0.5s ease;
+  /* Rotating role line */
+  .role-line { display: flex; align-items: baseline; gap: 9px; min-height: 26px; margin-bottom: 20px; flex-wrap: nowrap; }
+  .role-caret { font-family: var(--mono); font-size: 13px; color: var(--accent); flex-shrink: 0; }
+  .role {
+    flex: 1; min-width: 0;
+    font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--text-muted);
+    letter-spacing: 0.02em;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
-  .pillar.on { color: var(--accent); transform: translateY(-1px); }
-  .pillar-dot { color: var(--border); font-size: 12px; }
+  .role.out { opacity: 0; transform: translateY(-7px); }
 
   .hero-bio {
-    font-family: var(--serif); font-size: clamp(19px, 2.4vw, 22px); font-style: italic;
-    font-weight: 400; line-height: 1.6; color: var(--text-muted);
-    max-width: 30em; margin-bottom: 30px;
+    font-family: var(--serif); font-size: clamp(19px, 2.3vw, 23px); font-style: italic;
+    line-height: 1.58; color: var(--text-muted); max-width: 31em; margin-bottom: 32px;
   }
   .hero-bio strong { color: var(--text); font-style: normal; font-weight: 500; }
 
-  .ctas { display: flex; gap: 9px; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
-    font-family: var(--sans); font-size: 13.5px; font-weight: 600; letter-spacing: 0.005em;
-    text-decoration: none; padding: 10px 17px; border-radius: 8px; border: 1px solid transparent;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s, border-color 0.15s;
+  /* ── CIRCLE LINKS ──────────────────────────────────────── */
+  .circles { display: flex; gap: clamp(10px, 2vw, 18px); flex-wrap: wrap; }
+  .circ { text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 62px; }
+  .circ-ring {
+    position: relative; width: 54px; height: 54px; border-radius: 50%;
+    display: grid; place-items: center; flex-shrink: 0;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text); box-shadow: var(--shadow-sm);
+    transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s, color 0.25s, border-color 0.25s;
   }
-  .btn svg { width: 15px; height: 15px; flex-shrink: 0; }
-  .btn:hover { transform: translateY(-2px); }
-  .btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-sm); }
-  .btn-primary:hover { box-shadow: var(--shadow-md); }
-  .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--border); box-shadow: var(--shadow-sm); }
-  .btn-ghost:hover { border-color: var(--accent-border); color: var(--accent); }
+  /* Conic sweep that spins up on hover. */
+  .circ-ring::before {
+    content: ''; position: absolute; inset: -2px; border-radius: 50%; z-index: -1;
+    background: conic-gradient(from 0deg, transparent 0 62%, var(--accent) 82%, transparent 100%);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .circ-ring svg { width: 21px; height: 21px; position: relative; z-index: 1; }
+  .circ-label {
+    font-family: var(--mono); font-size: 9.5px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--text-subtle); text-align: center;
+    transition: color 0.25s; white-space: nowrap;
+  }
+  .circ:hover .circ-ring {
+    transform: translateY(-7px) scale(1.09);
+    box-shadow: var(--shadow-lg); color: var(--accent); border-color: transparent;
+  }
+  .circ:hover .circ-ring::before { opacity: 1; animation: spin 1.5s linear infinite; }
+  .circ:hover .circ-label { color: var(--accent); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  /* Gentle idle float, offset per circle so the row breathes unevenly. */
+  .js .circ-ring { animation: bob 5s ease-in-out infinite; animation-delay: var(--d, 0s); }
+  @keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -4px; } }
+  .circ:hover .circ-ring { animation-play-state: paused; }
 
-  .photo-frame { position: relative; flex-shrink: 0; width: max-content; justify-self: start; }
-  .photo-frame::after {
-    content: ''; position: absolute; inset: 0;
-    border: 1.5px solid var(--accent); border-radius: 20px;
-    transform: translate(11px, 11px); z-index: -1;
-    transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+  /* ── PHOTO ─────────────────────────────────────────────── */
+  .photo-wrap { position: relative; width: clamp(150px, 22vw, 210px); aspect-ratio: 1; justify-self: start; }
+  .photo-ring { position: absolute; inset: -11px; width: auto; height: auto; overflow: visible; }
+  .photo-ring circle {
+    fill: none; stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 3 9; opacity: 0.75;
+    transform-origin: 100px 100px; animation: rotate 46s linear infinite;
   }
-  .photo-frame:hover::after { transform: translate(5px, 5px); }
+  .photo-ring circle.inner {
+    stroke-dasharray: 1 14; opacity: 0.5; animation: rotate 34s linear infinite reverse;
+  }
+  @keyframes rotate { to { transform: rotate(360deg); } }
   .photo {
-    display: block; width: clamp(132px, 20vw, 188px); aspect-ratio: 1; object-fit: cover;
-    object-position: top center; border-radius: 20px;
-    border: 1px solid var(--border); background: var(--surface-tint);
-    box-shadow: var(--shadow-md);
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: top center;
+    display: block; border: 3px solid var(--surface); background: var(--surface-tint);
+    box-shadow: var(--shadow-lg); position: relative; z-index: 1;
+    transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
   }
+  .photo-wrap:hover .photo { transform: scale(1.04); }
 
-  /* ── METRICS ───────────────────────────────────────────── */
-  .metrics {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-    background: var(--border-light); border: 1px solid var(--border-light);
-    border-radius: 14px; overflow: hidden; margin-top: 52px;
+  /* ── INLINE STATS ──────────────────────────────────────── */
+  .stats {
+    position: relative; z-index: 1; display: flex; flex-wrap: wrap;
+    align-items: baseline; gap: clamp(20px, 4vw, 44px); margin-top: clamp(38px, 5vw, 54px);
   }
-  .metric {
-    background: var(--surface); padding: 22px 16px; text-align: center;
-    text-decoration: none; color: inherit; transition: background-color 0.2s;
+  .stat { display: flex; align-items: baseline; gap: 9px; text-decoration: none; color: inherit; }
+  .stat-num {
+    font-family: var(--serif); font-size: clamp(30px, 4vw, 40px); font-weight: 600;
+    color: var(--text); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+    transition: color 0.2s;
   }
-  a.metric:hover { background: var(--accent-bg); }
-  .metric-num {
-    font-family: var(--serif); font-size: clamp(28px, 4vw, 38px); font-weight: 600;
-    color: var(--text); line-height: 1; letter-spacing: -0.02em;
-    display: block; font-variant-numeric: tabular-nums;
-  }
-  .metric-num .suffix { color: var(--accent); }
-  .metric-label {
-    font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--text);
-    display: block; margin-top: 9px;
-  }
-  .metric-meta {
-    font-family: var(--mono); font-size: 10.5px; color: var(--text-subtle);
-    display: block; margin-top: 3px; letter-spacing: 0.02em;
-  }
+  .stat-txt { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-subtle); transition: color 0.2s; }
+  a.stat:hover .stat-num, a.stat:hover .stat-txt { color: var(--accent); }
+  .stat-div { width: 1px; align-self: stretch; background: var(--border); }
 
-  /* ── PILLAR CARDS ──────────────────────────────────────── */
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-    padding: 26px 22px; position: relative; overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+  /* ── MARQUEE ───────────────────────────────────────────── */
+  .marquee {
+    border-block: 1px solid var(--border-light); background: var(--surface-tint);
+    overflow: hidden; padding: 15px 0; position: relative;
+    mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
   }
-  .card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: var(--accent); transform: scaleX(0); transform-origin: left;
-    transition: transform 0.3s ease;
+  .marquee-track { display: flex; width: max-content; animation: slide 42s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-group { display: flex; align-items: center; flex-shrink: 0; }
+  .marquee-group span {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--text-muted);
+    padding: 0 20px; white-space: nowrap;
   }
-  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent-border); }
-  .card:hover::before { transform: scaleX(1); }
-  .card-icon {
-    width: 38px; height: 38px; border-radius: 10px; margin-bottom: 16px;
-    background: var(--accent-bg); color: var(--accent);
-    display: grid; place-items: center;
+  .marquee-group span::after { content: '◆'; color: var(--accent); margin-left: 22px; font-size: 8px; vertical-align: 2px; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* ── FOCUS (editorial rows, not cards) ─────────────────── */
+  .pillar-block {
+    display: grid; grid-template-columns: minmax(180px, 0.42fr) 1fr; gap: clamp(20px, 4vw, 46px);
+    padding: 34px 0; border-top: 1px solid var(--border-light); align-items: start;
   }
-  .card-icon svg { width: 19px; height: 19px; }
-  .card h3 {
-    font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--text);
-    letter-spacing: -0.01em; margin-bottom: 8px;
+  .pillar-block:first-of-type { border-top: none; padding-top: 6px; }
+  .pillar-word {
+    font-family: var(--serif); font-size: clamp(34px, 5.4vw, 54px); font-weight: 600;
+    line-height: 0.95; letter-spacing: -0.032em; color: var(--text);
+    position: relative; display: inline-block;
   }
-  .card p { font-size: 14.5px; line-height: 1.65; color: var(--text-muted); }
-  .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 14px; }
+  .pillar-word::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -7px; height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+  }
+  .pillar-block:hover .pillar-word::after { transform: scaleX(1); }
+  .pillar-num { font-family: var(--mono); font-size: 11px; color: var(--text-subtle); display: block; margin-bottom: 8px; letter-spacing: 0.1em; }
+  .pillar-body p { font-size: 16px; line-height: 1.7; color: var(--text-body); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
   .tag {
-    font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.02em;
-    color: var(--text-muted); background: var(--surface-tint);
-    border: 1px solid var(--border-light); padding: 3px 8px; border-radius: 5px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.02em; color: var(--text-muted);
+    background: var(--surface); border: 1px solid var(--border); padding: 4px 10px; border-radius: 100px;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
   }
+  .tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
   /* ── TIMELINE ──────────────────────────────────────────── */
-  .timeline { position: relative; padding-left: 30px; }
+  .timeline { position: relative; padding-left: 32px; }
   .timeline::before {
-    content: ''; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 1.5px;
-    background: linear-gradient(180deg, var(--accent-border), var(--border) 70%, transparent);
+    content: ''; position: absolute; left: 7px; top: 12px; bottom: 12px; width: 1.5px;
+    background: linear-gradient(180deg, var(--accent), var(--border) 65%, transparent);
   }
-  .job { position: relative; margin-bottom: 12px; }
+  .job { position: relative; margin-bottom: 13px; }
   .job::before {
-    content: ''; position: absolute; left: -30px; top: 20px;
-    width: 15px; height: 15px; border-radius: 50%;
-    background: var(--surface); border: 2.5px solid var(--brand, var(--accent));
-    z-index: 1; transition: transform 0.2s;
+    content: ''; position: absolute; left: -32px; top: 21px;
+    width: 15px; height: 15px; border-radius: 50%; background: var(--surface);
+    border: 2.5px solid var(--brand, var(--accent)); z-index: 1;
+    transition: transform 0.25s, box-shadow 0.25s;
   }
-  .job:hover::before { transform: scale(1.18); }
+  .job:hover::before { transform: scale(1.22); box-shadow: 0 0 0 5px color-mix(in srgb, var(--brand, var(--accent)) 16%, transparent); }
   .job-btn {
     width: 100%; cursor: pointer; text-align: left; font-family: inherit;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 13px;
     padding: 17px 19px; display: flex; align-items: center; gap: 15px;
-    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+    transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s;
   }
-  .job-btn:hover { border-color: var(--accent-border); box-shadow: var(--shadow-sm); }
+  .job-btn:hover { border-color: var(--accent-border); box-shadow: var(--shadow-md); transform: translateX(3px); }
   .job[open-state="true"] .job-btn { border-color: var(--accent-border); border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-  .job-logo {
-    width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0; object-fit: contain;
-    background: #fff; border: 1px solid var(--border-light); padding: 5px;
-  }
+  .job-logo { width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0; object-fit: contain; background: #fff; border: 1px solid var(--border-light); padding: 5px; }
   .job-main { flex: 1; min-width: 0; display: block; }
   .job-role { display: block; font-size: 14.5px; font-weight: 600; color: var(--text); line-height: 1.35; }
   .job-org { display: block; font-size: 13.5px; color: var(--text-muted); margin-top: 1px; }
   .job-org b { color: var(--brand, var(--accent)); font-weight: 600; }
-  .job-when {
-    font-family: var(--mono); font-size: 11px; color: var(--text-subtle);
-    white-space: nowrap; letter-spacing: 0.02em;
-  }
-  .job-chev { color: var(--text-subtle); flex-shrink: 0; transition: transform 0.25s ease; }
+  .job-when { font-family: var(--mono); font-size: 11px; color: var(--text-subtle); white-space: nowrap; }
+  .job-chev { color: var(--text-subtle); flex-shrink: 0; transition: transform 0.3s ease, color 0.2s; }
   .job-chev svg { width: 16px; height: 16px; display: block; }
   .job[open-state="true"] .job-chev { transform: rotate(180deg); color: var(--accent); }
-  .job-body {
-    display: grid; grid-template-rows: 0fr;
-    transition: grid-template-rows 0.32s cubic-bezier(.2,.8,.2,1);
-  }
+  .job-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.34s cubic-bezier(.2,.8,.2,1); }
   .job[open-state="true"] .job-body { grid-template-rows: 1fr; }
   .job-body > div { overflow: hidden; }
   .job-inner {
     background: var(--surface-tint); border: 1px solid var(--accent-border); border-top: none;
-    border-radius: 0 0 12px 12px; padding: 4px 20px 18px;
+    border-radius: 0 0 13px 13px; padding: 4px 20px 18px;
   }
   .job-inner ul { list-style: none; }
   .job-inner li {
     font-size: 14.5px; line-height: 1.62; color: var(--text-body);
-    padding: 8px 0 8px 20px; position: relative; border-bottom: 1px solid var(--border-light);
+    padding: 9px 0 9px 22px; position: relative; border-bottom: 1px solid var(--border-light);
   }
   .job-inner li:last-child { border-bottom: none; }
-  .job-inner li::before {
-    content: '→'; position: absolute; left: 0; top: 8px;
-    color: var(--accent); font-family: var(--mono); font-size: 13px;
-  }
+  .job-inner li::before { content: '→'; position: absolute; left: 0; top: 9px; color: var(--accent); font-family: var(--mono); font-size: 13px; }
   .job-inner li b { color: var(--text); font-weight: 600; }
 
-  /* ── RESEARCH ──────────────────────────────────────────── */
+  /* ── LIST ROWS ─────────────────────────────────────────── */
   .stack { display: grid; gap: 10px; }
   .row-item {
-    display: flex; align-items: baseline; gap: 14px;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 11px;
-    padding: 15px 18px; text-decoration: none; color: inherit;
-    transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+    display: flex; align-items: baseline; gap: 14px; text-decoration: none; color: inherit;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   }
-  a.row-item:hover { border-color: var(--accent-border); transform: translateX(3px); box-shadow: var(--shadow-sm); }
+  a.row-item:hover { border-color: var(--accent-border); transform: translateX(4px); box-shadow: var(--shadow-md); }
   .row-badge {
     font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
-    text-transform: uppercase; padding: 3px 8px; border-radius: 5px; flex-shrink: 0;
+    text-transform: uppercase; padding: 4px 9px; border-radius: 6px; flex-shrink: 0;
     background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border);
   }
   .row-badge.gray { background: var(--surface-tint); color: var(--text-muted); border-color: var(--border); }
   .row-text { flex: 1; min-width: 0; display: block; }
   .row-title { display: block; font-size: 14.5px; font-weight: 600; color: var(--text); line-height: 1.45; }
-  .row-meta { display: block; font-family: var(--mono); font-size: 11.5px; color: var(--text-subtle); margin-top: 3px; }
-  .row-arrow { color: var(--text-subtle); font-size: 15px; flex-shrink: 0; }
-  a.row-item:hover .row-arrow { color: var(--accent); }
-
+  .row-meta { display: block; font-family: var(--mono); font-size: 11.5px; color: var(--text-subtle); margin-top: 4px; }
   .row-desc {
-    display: block; font-size: 13.5px; line-height: 1.55; color: var(--text-muted); margin-top: 4px;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    font-size: 13.5px; line-height: 1.55; color: var(--text-muted); margin-top: 5px;
   }
-  .after-stack { margin-top: 16px; }
+  .row-arrow { color: var(--text-subtle); font-size: 15px; flex-shrink: 0; transition: transform 0.2s, color 0.2s; }
+  a.row-item:hover .row-arrow { color: var(--accent); transform: translate(2px, -2px); }
+  .after-stack { margin-top: 18px; }
 
   .subhead {
-    font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--text-subtle);
-    margin: 34px 0 14px; display: flex; align-items: center; gap: 10px;
+    margin: 38px 0 15px; display: flex; align-items: center; gap: 12px;
   }
   .subhead::after { content: ''; flex: 1; height: 1px; background: var(--border-light); }
   .subhead:first-child { margin-top: 0; }
 
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip {
-    font-family: var(--mono); font-size: 11.5px; color: var(--text-body);
-    background: var(--surface); border: 1px solid var(--border);
-    padding: 7px 12px; border-radius: 7px;
-  }
+  .chip { font-family: var(--mono); font-size: 11.5px; color: var(--text-body); background: var(--surface); border: 1px solid var(--border); padding: 8px 13px; border-radius: 8px; }
   .chip b { color: var(--accent); font-weight: 700; }
 
-  /* ── ELSEWHERE ─────────────────────────────────────────── */
-  .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-  .link-card {
-    display: flex; align-items: center; gap: 13px; text-decoration: none;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-    padding: 16px 18px; color: inherit;
-    transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+    font-family: var(--sans); font-size: 13.5px; font-weight: 600;
+    text-decoration: none; padding: 11px 18px; border-radius: 100px; border: 1px solid transparent;
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s, color 0.18s;
   }
-  .link-card:hover { transform: translateY(-3px); border-color: var(--accent-border); box-shadow: var(--shadow-md); }
-  .link-ico {
-    width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
-    display: grid; place-items: center; background: var(--accent-bg); color: var(--accent);
-  }
-  .link-ico svg { width: 17px; height: 17px; }
-  .link-card > span:last-child { min-width: 0; }
-  .link-name { display: block; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.3; }
-  .link-desc { display: block; font-family: var(--mono); font-size: 10.5px; color: var(--text-subtle); margin-top: 2px; }
+  .btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-sm); }
+  .btn-primary:hover { box-shadow: var(--shadow-md); }
+  .btn-ghost { background: var(--surface); color: var(--text); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
   /* ── CONTACT ───────────────────────────────────────────── */
-  .contact-card {
-    background: var(--accent-bg); border: 1px solid var(--accent-border);
-    border-radius: 16px; padding: clamp(28px, 5vw, 44px); text-align: center;
+  .contact { position: relative; overflow: hidden; border-radius: 20px; padding: clamp(32px, 6vw, 54px); text-align: center; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-md); }
+  .contact::before {
+    content: ''; position: absolute; inset: 0; z-index: 0; opacity: 0.5; filter: blur(56px);
+    background:
+      radial-gradient(circle at 22% 18%, color-mix(in srgb, var(--accent) 40%, transparent), transparent 58%),
+      radial-gradient(circle at 80% 78%, color-mix(in srgb, var(--violet) 34%, transparent), transparent 58%);
+    animation: drift2 22s ease-in-out infinite;
   }
-  .contact-card h2 {
-    font-family: var(--serif); font-size: clamp(26px, 4vw, 36px); font-weight: 600;
-    color: var(--text); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px;
-  }
-  .contact-card p { font-size: 15.5px; color: var(--text-muted); max-width: 44ch; margin: 0 auto 26px; }
-  .contact-ctas { display: flex; gap: 9px; flex-wrap: wrap; justify-content: center; }
+  .contact > * { position: relative; z-index: 1; }
+  .contact h2 { font-family: var(--serif); font-size: clamp(28px, 4.4vw, 42px); font-weight: 600; color: var(--text); letter-spacing: -0.024em; line-height: 1.1; margin-bottom: 14px; }
+  .contact p { font-size: 16px; color: var(--text-muted); max-width: 46ch; margin: 0 auto 28px; }
+  .contact-ctas { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 
-  /* ── FOOTER ────────────────────────────────────────────── */
-  footer {
-    border-top: 1px solid var(--border); background: var(--surface);
-    padding: 26px clamp(20px, 5vw, 40px); margin-top: 20px;
-  }
+  footer { border-top: 1px solid var(--border); background: var(--surface); padding: 28px clamp(20px, 5vw, 40px); }
   .footer-in {
-    max-width: 940px; margin: 0 auto; display: flex; align-items: center;
-    justify-content: space-between; flex-wrap: wrap; gap: 14px;
-    font-family: var(--mono); font-size: 11.5px; color: var(--text-subtle);
+    max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 14px; font-family: var(--mono); font-size: 11.5px; color: var(--text-subtle);
   }
   .footer-in a { color: var(--text-muted); text-decoration: none; }
   .footer-in a:hover { color: var(--accent); }
-  .footer-nav { display: flex; gap: 16px; flex-wrap: wrap; }
+  .footer-nav { display: flex; gap: 18px; flex-wrap: wrap; }
 
-  /* ── TOAST ─────────────────────────────────────────────── */
   .toast {
-    position: fixed; bottom: 26px; left: 50%; z-index: 200;
-    transform: translate(-50%, 22px); opacity: 0; pointer-events: none;
+    position: fixed; bottom: 28px; left: 50%; z-index: 10000;
+    transform: translate(-50%, 24px); opacity: 0; pointer-events: none;
     background: var(--text); color: var(--bg);
     font-family: var(--mono); font-size: 12.5px; font-weight: 500;
-    padding: 11px 20px; border-radius: 9px; box-shadow: var(--shadow-md);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    padding: 12px 22px; border-radius: 100px; box-shadow: var(--shadow-lg);
+    transition: opacity 0.28s ease, transform 0.28s cubic-bezier(.2,.8,.2,1);
   }
   .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
-  /* ── REVEAL ────────────────────────────────────────────── */
-  /* Hidden only when JS is running, so no-JS readers still get the content. */
-  .js .reveal { opacity: 0; transform: translateY(18px); }
-  .js .reveal.in { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s cubic-bezier(.2,.8,.2,1); }
+  .js .reveal { opacity: 0; transform: translateY(20px); }
+  .js .reveal.in { opacity: 1; transform: none; transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.8,.2,1); }
 
-  /* ── RESPONSIVE ────────────────────────────────────────── */
-  @media (max-width: 760px) {
+  @media (max-width: 800px) {
     .nav-links { display: none; }
-    .hero-grid { grid-template-columns: 1fr; gap: 26px; }
-    .photo-frame { order: -1; }
-    .metrics { grid-template-columns: repeat(2, 1fr); }
-    .cards { grid-template-columns: 1fr; }
+    .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+    .photo-wrap { order: -1; }
+    .pillar-block { grid-template-columns: 1fr; gap: 14px; padding: 28px 0; }
     .job-when { display: none; }
-    .section { padding: 58px 0; }
+    .section { padding: 62px 0; }
   }
-  @media (max-width: 420px) {
-    .metrics { grid-template-columns: 1fr; }
-    .btn { flex: 1 1 auto; justify-content: center; }
+  @media (max-width: 460px) {
+    .circles { gap: 12px 10px; justify-content: flex-start; }
+    .circ { width: 56px; }
+    .circ-ring { width: 48px; height: 48px; }
+    .circ-ring svg { width: 19px; height: 19px; }
+    .stats { gap: 18px 26px; }
+    .stat-div { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
-    .reveal { opacity: 1; transform: none; }
+    *, *::before, *::after { animation: none !important; transition-duration: 0.001ms !important; }
+    .js .reveal { opacity: 1; transform: none; }
+    .hero h1 .shine { -webkit-text-fill-color: var(--text); color: var(--text); }
   }
 </style>
 </head>
@@ -460,8 +507,8 @@
     <a href="#focus">Focus</a>
     <a href="#journey">Journey</a>
     <a href="#writing">Writing</a>
-    <a href="#research">Research</a>
-    <a href="#elsewhere">Elsewhere</a>
+    <a href="#shelf">Shelf</a>
+    <a href="#contact">Contact</a>
   </div>
   <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
   <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
@@ -469,112 +516,133 @@
 
 <main id="top">
 
-  <!-- ── HERO ─────────────────────────────────────────────── -->
   <section class="hero">
+    <div class="hero-dots" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="wrap">
       <div class="hero-grid">
         <div>
           <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> Principal SDE @ Infrrd</span>
-          <h1>Anuj Sadani</h1>
-          <div class="pillars" id="pillars" aria-label="People, Business, Technology">
-            <span class="pillar">People</span><span class="pillar-dot">◆</span>
-            <span class="pillar">Business</span><span class="pillar-dot">◆</span>
-            <span class="pillar">Technology</span>
+          <h1><span class="shine">Anuj Sadani</span></h1>
+          <div class="role-line">
+            <span class="role-caret" aria-hidden="true">&gt;</span>
+            <span class="role" id="role">People · Business · Technology</span>
           </div>
-          <p class="hero-bio">I build <strong>AI systems</strong> — and the <strong>teams</strong> that build them. Sixteen years turning GenAI enthusiasm into production software that survives contact with real users.</p>
-          <div class="ctas">
-            <a class="btn btn-primary" href="https://tech.anujsadani.in" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16M4 10h16M4 15h10M4 20h13"/></svg>
-              Read the blog
+          <p class="hero-bio">I build <strong>AI systems</strong> — and the <strong>teams</strong> that build them. Turning GenAI enthusiasm into software that survives contact with real users.</p>
+
+          <div class="circles">
+            <a class="circ" href="https://tech.anujsadani.in" target="_blank" rel="noopener" style="--d:0s" aria-label="Tech blog">
+              <span class="circ-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16M4 10h16M4 15h10M4 20h13"/></svg></span>
+              <span class="circ-label">Blog</span>
             </a>
-            <a class="btn btn-ghost" href="assets/Anuj-Sadani-Resume.pdf" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13m0 0l-4.5-4.5M12 16l4.5-4.5M4 20h16"/></svg>
-              Résumé
+            <a class="circ" href="assets/Anuj-Sadani-Resume.pdf" target="_blank" rel="noopener" style="--d:.35s" aria-label="Résumé, PDF">
+              <span class="circ-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v5h5"/><path d="M19 21H5V3h9l5 5v13z"/><path d="M9 13h6M9 17h4"/></svg></span>
+              <span class="circ-label">Résumé</span>
             </a>
-            <a class="btn btn-ghost" href="https://linkedin.com/in/anujsadani" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-              LinkedIn
+            <a class="circ" href="https://linkedin.com/in/anujsadani" target="_blank" rel="noopener" style="--d:.7s" aria-label="LinkedIn">
+              <span class="circ-ring"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span>
+              <span class="circ-label">LinkedIn</span>
             </a>
-            <a class="btn btn-ghost" href="https://github.com/asadani" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.1.82-.26.82-.57 0-.29-.01-1.23-.01-2.24-3.02.56-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.69-.42-.23-1.02-.78-.02-.8.95-.01 1.62.87 1.85 1.23 1.08 1.82 2.8 1.31 3.49.99.11-.78.42-1.3.77-1.6-2.67-.3-5.46-1.34-5.46-5.93 0-1.3.47-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.9 1.23 3.22 0 4.61-2.8 5.63-5.48 5.93.44.37.81 1.09.81 2.22 0 1.6-.01 2.9-.01 3.3 0 .31.22.69.82.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
+            <a class="circ" href="https://github.com/asadani" target="_blank" rel="noopener" style="--d:1.05s" aria-label="GitHub">
+              <span class="circ-ring"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.1.82-.26.82-.57 0-.29-.01-1.23-.01-2.24-3.02.56-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.69-.42-.23-1.02-.78-.02-.8.95-.01 1.62.87 1.85 1.23 1.08 1.82 2.8 1.31 3.49.99.11-.78.42-1.3.77-1.6-2.67-.3-5.46-1.34-5.46-5.93 0-1.3.47-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.9 1.23 3.22 0 4.61-2.8 5.63-5.48 5.93.44.37.81 1.09.81 2.22 0 1.6-.01 2.9-.01 3.3 0 .31.22.69.82.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></span>
+              <span class="circ-label">GitHub</span>
+            </a>
+            <a class="circ" href="https://ko-fi.com/anujsadani" target="_blank" rel="noopener" style="--d:1.4s" aria-label="Ko-fi">
+              <span class="circ-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a3 3 0 010 6h-1"/><path d="M3 8h14v6a5 5 0 01-5 5H8a5 5 0 01-5-5V8z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg></span>
+              <span class="circ-label">Ko-fi</span>
+            </a>
+            <a class="circ" href="https://tech.anujsadani.in/#research" target="_blank" rel="noopener" style="--d:1.75s" aria-label="Books">
+              <span class="circ-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
+              <span class="circ-label">Books</span>
+            </a>
+            <a class="circ" href="https://tech.anujsadani.in/#research" target="_blank" rel="noopener" style="--d:2.1s" aria-label="Papers">
+              <span class="circ-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h9l4 4v11a2 2 0 01-2 2H8a2 2 0 01-2-2V5a2 2 0 012-2z"/><path d="M17 3v5h4"/><path d="M9.5 12h6M9.5 16h4"/><path d="M3 7v12a3 3 0 003 3h1"/></svg></span>
+              <span class="circ-label">Papers</span>
             </a>
           </div>
         </div>
-        <div class="photo-frame">
-          <img class="photo" src="assets/profile-pic.jpg" alt="Anuj Sadani" width="188" height="188">
+
+        <div class="photo-wrap">
+          <svg class="photo-ring" viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="100" cy="100" r="98"/>
+            <circle class="inner" cx="100" cy="100" r="88"/>
+          </svg>
+          <img class="photo" src="assets/profile-pic.jpg" alt="Anuj Sadani" width="210" height="210">
         </div>
       </div>
 
-      <div class="metrics reveal">
-        <div class="metric">
-          <span class="metric-num" data-count="16"><span class="val">0</span><span class="suffix">+</span></span>
-          <span class="metric-label">Years</span>
-          <span class="metric-meta">building &amp; leading</span>
-        </div>
-        <a class="metric" href="https://tech.anujsadani.in/#articles" target="_blank" rel="noopener">
-          <span class="metric-num" data-count="26"><span class="val">0</span></span>
-          <span class="metric-label">Essays</span>
-          <span class="metric-meta">AI, infra, security</span>
-        </a>
-        <a class="metric" href="#research">
-          <span class="metric-num" data-count="3"><span class="val">0</span></span>
-          <span class="metric-label">Papers</span>
-          <span class="metric-meta">arXiv / SSRN</span>
-        </a>
-        <a class="metric" href="#research">
-          <span class="metric-num" data-count="3"><span class="val">0</span></span>
-          <span class="metric-label">Patents</span>
-          <span class="metric-meta">USPTO, pending</span>
-        </a>
+      <div class="stats reveal">
+        <a class="stat" href="#writing"><span class="stat-num" data-count="26">0</span><span class="stat-txt">essays</span></a>
+        <span class="stat-div" aria-hidden="true"></span>
+        <a class="stat" href="#shelf"><span class="stat-num" data-count="3">0</span><span class="stat-txt">papers</span></a>
+        <span class="stat-div" aria-hidden="true"></span>
+        <a class="stat" href="#shelf"><span class="stat-num" data-count="6">0</span><span class="stat-txt">books &amp; digital</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ── FOCUS ────────────────────────────────────────────── -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>Enterprise RAG</span><span>Agentic workflows</span><span>Evaluation pipelines</span><span>LLM routing</span><span>FastAPI</span><span>Kubernetes / EKS</span><span>Secure SDLC</span><span>Cost optimisation</span><span>Team mentorship</span><span>Python at scale</span>
+      </div>
+      <div class="marquee-group">
+        <span>Enterprise RAG</span><span>Agentic workflows</span><span>Evaluation pipelines</span><span>LLM routing</span><span>FastAPI</span><span>Kubernetes / EKS</span><span>Secure SDLC</span><span>Cost optimisation</span><span>Team mentorship</span><span>Python at scale</span>
+      </div>
+    </div>
+  </div>
+
   <section class="section" id="focus">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-num">01 / FOCUS</span>
-        <h2 class="sec-title">People, business, technology</h2>
-        <p class="sec-sub">In that order when it matters. The technology is rarely the hard part — the hard part is a team that can carry it and a business that can bet on it.</p>
+        <span class="sec-label">Focus</span>
+        <h2 class="sec-title">Three things, in this order</h2>
+        <p class="sec-sub">The technology is rarely the hard part. The hard part is a team that can carry it and a business that can bet on it.</p>
       </div>
-      <div class="cards reveal">
-        <div class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 20v-2a4 4 0 00-3-3.87M16 3.13A4 4 0 0119 7"/></svg>
+
+      <div class="reveal">
+        <article class="pillar-block">
+          <div>
+            <span class="pillar-num">01</span>
+            <h3 class="pillar-word">People</h3>
           </div>
-          <h3>People</h3>
-          <p>Mentoring 12+ Python and ML engineers on 90-day growth plans, hiring for talent density, and building the kind of team where good engineers get better instead of just busier.</p>
-          <div class="card-tags"><span class="tag">mentorship</span><span class="tag">talent density</span><span class="tag">growth plans</span></div>
-        </div>
-        <div class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg>
+          <div class="pillar-body">
+            <p>I lead and mentor a team of 12+ Python and ML engineers on 90-day growth plans, and hire for talent density over headcount. The goal is a room where good engineers get better rather than merely busier.</p>
+            <div class="tags"><span class="tag">mentorship</span><span class="tag">talent density</span><span class="tag">growth plans</span><span class="tag">hiring</span></div>
           </div>
-          <h3>Business</h3>
-          <p>Translating requirements into technical OKRs, and honest bets over hype. A hybrid ML+AI design that cut operating cost 30–40% against an LLM-only baseline — same outcome, cheaper path.</p>
-          <div class="card-tags"><span class="tag">technical OKRs</span><span class="tag">cost efficiency</span><span class="tag">stakeholders</span></div>
-        </div>
-        <div class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+        </article>
+
+        <article class="pillar-block">
+          <div>
+            <span class="pillar-num">02</span>
+            <h3 class="pillar-word">Business</h3>
           </div>
-          <h3>Technology</h3>
-          <p>Enterprise RAG platforms, agentic workflows, and evaluation pipelines — plus ownership of the org-wide Python stack, from async performance to secure SDLC to what actually ships on Kubernetes.</p>
-          <div class="card-tags"><span class="tag">RAG</span><span class="tag">agents</span><span class="tag">FastAPI</span><span class="tag">K8s / EKS</span><span class="tag">evals</span></div>
-        </div>
+          <div class="pillar-body">
+            <p>Requirements become technical OKRs, and hype becomes an honest bet with a number attached. One example: a hybrid ML+AI design that cut operating cost 30–40% against an LLM-only baseline, same outcome by a cheaper route.</p>
+            <div class="tags"><span class="tag">technical OKRs</span><span class="tag">cost efficiency</span><span class="tag">stakeholders</span><span class="tag">roadmaps</span></div>
+          </div>
+        </article>
+
+        <article class="pillar-block">
+          <div>
+            <span class="pillar-num">03</span>
+            <h3 class="pillar-word">Technology</h3>
+          </div>
+          <div class="pillar-body">
+            <p>Enterprise RAG platforms, agentic workflows and evaluation pipelines, plus ownership of the org-wide Python stack: async performance, secure SDLC, and what actually holds up once it is running on Kubernetes.</p>
+            <div class="tags"><span class="tag">RAG</span><span class="tag">agents</span><span class="tag">FastAPI</span><span class="tag">K8s / EKS</span><span class="tag">evals</span><span class="tag">AWS</span></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ── JOURNEY ──────────────────────────────────────────── -->
   <section class="section" id="journey">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-num">02 / JOURNEY</span>
-        <h2 class="sec-title">Sixteen years, three very different rooms</h2>
-        <p class="sec-sub">Silicon to logistics to enterprise AI. Tap any role to see what actually happened there.</p>
+        <span class="sec-label">Journey</span>
+        <h2 class="sec-title">Three very different rooms</h2>
+        <p class="sec-sub">Silicon, then logistics, then enterprise AI. Tap any role to see what happened there.</p>
       </div>
 
       <div class="timeline reveal">
@@ -592,8 +660,8 @@
             <li><b>Recognition that stuck:</b> architected the core GenAI and ML capabilities behind Infrrd's placement as a Leader in the <i>Gartner Magic Quadrant</i>, plus Everest Group recognition.</li>
             <li><b>Innovation streak:</b> coordinated cross-departmental R&amp;D that earned the company Deep Analysis' "Innovator of the Year" run.</li>
             <li><b>Python, org-wide:</b> own and evolve the entire Python stack across teams — enterprise standards for security, async performance (FastAPI/Flask), and code quality.</li>
-            <li><b>Cheaper than the obvious answer:</b> designed a hybrid ML+AI system delivering 30–40% lower operating cost than an LLM-only implementation, via intelligent model routing and tuning.</li>
-            <li><b>Production reality:</b> lead Docker and Kubernetes/EKS strategy on AWS — resilient against rate limits and SLA degradation, not just working on a laptop.</li>
+            <li><b>Cheaper than the obvious answer:</b> a hybrid ML+AI system delivering 30–40% lower operating cost than an LLM-only implementation, via intelligent model routing and tuning.</li>
+            <li><b>Production reality:</b> lead Docker and Kubernetes/EKS strategy on AWS, resilient against rate limits and SLA degradation rather than merely working on a laptop.</li>
             <li><b>Team:</b> lead and mentor 12+ Python/ML engineers on 90-day growth plans.</li>
           </ul></div></div></div>
         </div>
@@ -609,7 +677,7 @@
             <span class="job-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
           </button>
           <div class="job-body" id="job-dh"><div><div class="job-inner"><ul>
-            <li>Designed and scaled Python/Flask backend microservices for a high-traffic logistics platform — real-time order processing across distributed systems.</li>
+            <li>Designed and scaled Python/Flask backend microservices for a high-traffic logistics platform, handling real-time order processing across distributed systems.</li>
             <li>Worked with Product Owners and engineering leadership to turn business objectives into technical OKRs and delivery roadmaps.</li>
             <li>Partnered with Data Science and BI to land analytical workflows inside production services.</li>
             <li>Drove incident management and reliability through IaC (Terraform, Helm) and observability (Grafana, New Relic).</li>
@@ -628,7 +696,7 @@
           </button>
           <div class="job-body" id="job-nvidia"><div><div class="job-inner"><ul>
             <li>Led 8+ engineers building embedded automation frameworks and internal web tooling across multiple product lines.</li>
-            <li>Owned the full SDLC — requirements and system design through deployment and long-term maintenance.</li>
+            <li>Owned the full SDLC, from requirements and system design through deployment and long-term maintenance.</li>
             <li>Built scalable data management for production systems with an eye on integrity and traceability.</li>
             <li>Drove RCCA on complex production issues, improving triage accuracy and cutting repeat failures.</li>
             <li>Pushed automation-first practice and crowdsourced internal tooling to lift engineering productivity.</li>
@@ -638,13 +706,12 @@
     </div>
   </section>
 
-  <!-- ── WRITING ──────────────────────────────────────────── -->
-  <!-- Post list is pulled live from the blog's articles.json; the markup below
-       is the fallback that shows if that fetch fails. -->
+  <!-- Posts come from the blog's articles.json at runtime; the row below is the
+       fallback shown if that request fails. -->
   <section class="section" id="writing">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-num">03 / WRITING</span>
+        <span class="sec-label">Writing</span>
         <h2 class="sec-title">Latest from the blog</h2>
         <p class="sec-sub">Field notes on AI engineering, infrastructure, and the parts that quietly break in production.</p>
       </div>
@@ -667,39 +734,35 @@
     </div>
   </section>
 
-  <!-- ── RESEARCH ─────────────────────────────────────────── -->
-  <section class="section" id="research">
+  <!-- Papers and books come from the blog's publications.json at runtime. -->
+  <section class="section" id="shelf">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-num">04 / RESEARCH</span>
-        <h2 class="sec-title">Papers, patents, paperwork</h2>
+        <span class="sec-label">Shelf</span>
+        <h2 class="sec-title">Papers, books, paperwork</h2>
         <p class="sec-sub">Ideas that held up well enough to write down formally.</p>
       </div>
 
       <div class="reveal">
-        <div class="subhead">Publications</div>
-        <div class="stack">
-          <a class="row-item" href="https://arxiv.org/abs/2605.13538" target="_blank" rel="noopener">
+        <div class="subhead">Papers</div>
+        <div class="stack" id="papers">
+          <a class="row-item" href="https://tech.anujsadani.in/#research" target="_blank" rel="noopener">
             <span class="row-badge">arXiv</span>
             <span class="row-text">
-              <span class="row-title">Locale-Conditioned PII Substitution with Small Language Models</span>
-              <span class="row-meta">arXiv:2605.13538</span>
+              <span class="row-title">Peer-reviewed and preprint work on arXiv and SSRN</span>
+              <span class="row-meta">see the research section on the blog</span>
             </span>
             <span class="row-arrow" aria-hidden="true">↗</span>
           </a>
-          <a class="row-item" href="https://arxiv.org/abs/2604.21816" target="_blank" rel="noopener">
-            <span class="row-badge">arXiv</span>
+        </div>
+
+        <div class="subhead">Books &amp; digital</div>
+        <div class="stack" id="books">
+          <a class="row-item" href="https://tech.anujsadani.in/#research" target="_blank" rel="noopener">
+            <span class="row-badge gray">Shelf</span>
             <span class="row-text">
-              <span class="row-title">Tool Attention Is All You Need</span>
-              <span class="row-meta">arXiv:2604.21816</span>
-            </span>
-            <span class="row-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="row-item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6071412" target="_blank" rel="noopener">
-            <span class="row-badge">SSRN</span>
-            <span class="row-text">
-              <span class="row-title">The Great Recalibration</span>
-              <span class="row-meta">SSRN:6071412</span>
+              <span class="row-title">Books and digital releases</span>
+              <span class="row-meta">Amazon · Ko-fi</span>
             </span>
             <span class="row-arrow" aria-hidden="true">↗</span>
           </a>
@@ -709,27 +772,21 @@
         <div class="stack">
           <div class="row-item">
             <span class="row-badge gray">19/375,298</span>
-            <span class="row-text">
-              <span class="row-title">System and Method for Optimizing Queries for Extracting Entities from Documents</span>
-            </span>
+            <span class="row-text"><span class="row-title">System and Method for Optimizing Queries for Extracting Entities from Documents</span></span>
           </div>
           <div class="row-item">
             <span class="row-badge gray">19/375,285</span>
-            <span class="row-text">
-              <span class="row-title">System and Method for Optimizing Queries for Extracting Entities and Entity Values from Documents</span>
-            </span>
+            <span class="row-text"><span class="row-title">System and Method for Optimizing Queries for Extracting Entities and Entity Values from Documents</span></span>
           </div>
           <div class="row-item">
             <span class="row-badge gray">19/432,186</span>
-            <span class="row-text">
-              <span class="row-title">System and Method for Extraction of Entities from Documents</span>
-            </span>
+            <span class="row-text"><span class="row-title">System and Method for Extraction of Entities from Documents</span></span>
           </div>
         </div>
 
         <div class="subhead">Education &amp; certification</div>
         <div class="chips">
-          <span class="chip"><b>B.E.</b> Information Technology · GCoE Amravati, 2009</span>
+          <span class="chip"><b>B.E.</b> Information Technology · GCoE Amravati</span>
           <span class="chip"><b>IBM</b> Enterprise Design Thinking Co-Creator</span>
           <span class="chip"><b>CSM</b> Certified ScrumMaster · Scrum Alliance</span>
         </div>
@@ -737,40 +794,11 @@
     </div>
   </section>
 
-  <!-- ── ELSEWHERE ────────────────────────────────────────── -->
-  <section class="section" id="elsewhere">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-num">05 / ELSEWHERE</span>
-        <h2 class="sec-title">Where I write things down</h2>
-      </div>
-      <div class="links-grid reveal">
-        <a class="link-card" href="https://tech.anujsadani.in" target="_blank" rel="noopener">
-          <span class="link-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 5h16M4 10h16M4 15h10M4 20h13"/></svg></span>
-          <span><span class="link-name">Tech Blog</span><span class="link-desc">tech.anujsadani.in</span></span>
-        </a>
-        <a class="link-card" href="https://devpandaandvibedragon.substack.com/" target="_blank" rel="noopener">
-          <span class="link-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 8.24H1.46V5.41h21.08v2.83zM1.46 10.81V24L12 18.11 22.54 24V10.81H1.46zM22.54 0H1.46v2.84h21.08V0z"/></svg></span>
-          <span><span class="link-name">Dev Panda &amp; Vibe Dragon</span><span class="link-desc">substack</span></span>
-        </a>
-        <a class="link-card" href="https://medium.com/@anuj.sadani" target="_blank" rel="noopener">
-          <span class="link-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></span>
-          <span><span class="link-name">Medium</span><span class="link-desc">@anuj.sadani</span></span>
-        </a>
-        <a class="link-card" href="https://github.com/asadani" target="_blank" rel="noopener">
-          <span class="link-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.1.82-.26.82-.57 0-.29-.01-1.23-.01-2.24-3.02.56-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.69-.42-.23-1.02-.78-.02-.8.95-.01 1.62.87 1.85 1.23 1.08 1.82 2.8 1.31 3.49.99.11-.78.42-1.3.77-1.6-2.67-.3-5.46-1.34-5.46-5.93 0-1.3.47-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.9 1.23 3.22 0 4.61-2.8 5.63-5.48 5.93.44.37.81 1.09.81 2.22 0 1.6-.01 2.9-.01 3.3 0 .31.22.69.82.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></span>
-          <span><span class="link-name">GitHub</span><span class="link-desc">@asadani</span></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CONTACT ──────────────────────────────────────────── -->
   <section class="section" id="contact">
     <div class="wrap">
-      <div class="contact-card reveal">
-        <h2>Let's talk shop</h2>
-        <p>AI systems, engineering orgs, or why your RAG pipeline is quietly expensive — happy to compare notes.</p>
+      <div class="contact reveal">
+        <h2>Say hello</h2>
+        <p>Always up for a conversation about AI systems, engineering orgs, or why a RAG pipeline gets expensive when nobody is watching.</p>
         <div class="contact-ctas">
           <button class="btn btn-primary" id="copy-email" type="button" data-email="anuj.k.sadani@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
@@ -798,7 +826,7 @@
       <a href="https://tech.anujsadani.in" target="_blank" rel="noopener">Blog</a>
       <a href="https://github.com/asadani" target="_blank" rel="noopener">GitHub</a>
       <a href="https://linkedin.com/in/anujsadani" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="assets/Anuj-Sadani-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      <a href="https://ko-fi.com/anujsadani" target="_blank" rel="noopener">Ko-fi</a>
       <a href="#top">Top ↑</a>
     </div>
   </div>
@@ -809,10 +837,11 @@
 <script>
 (function () {
   'use strict';
+  var BLOG = 'https://tech.anujsadani.in';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
 
   /* ── Theme ─────────────────────────────────────────── */
-  var root = document.documentElement;
   var toggle = document.getElementById('theme-toggle');
   function paintToggle() {
     var dark = root.getAttribute('data-theme') === 'dark';
@@ -829,8 +858,7 @@
   });
 
   /* ── Scroll progress ──────────────────────────────── */
-  var bar = document.getElementById('progress-bar');
-  var ticking = false;
+  var bar = document.getElementById('progress-bar'), ticking = false;
   function progress() {
     var h = document.documentElement.scrollHeight - window.innerHeight;
     bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
@@ -846,51 +874,60 @@
   if (reduced || !('IntersectionObserver' in window)) {
     reveals.forEach(function (el) { el.classList.add('in'); });
   } else {
-    var ro = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    var ro = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(function (el) { ro.observe(el); });
   }
 
-  /* ── Count-up metrics ─────────────────────────────── */
-  var nums = document.querySelectorAll('.metric-num[data-count]');
+  /* ── Count-up stats ───────────────────────────────── */
   function countUp(el) {
     var target = parseInt(el.getAttribute('data-count'), 10);
-    var out = el.querySelector('.val');
-    if (reduced) { out.textContent = target; return; }
-    var start = performance.now(), dur = 900;
-    function step(now) {
+    if (isNaN(target)) return;
+    if (reduced) { el.textContent = target; return; }
+    var start = performance.now(), dur = 1000;
+    (function step(now) {
       var p = Math.min((now - start) / dur, 1);
-      out.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
       if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
+    })(performance.now());
   }
+  var stats = document.querySelectorAll('.stat-num[data-count]');
   if (!('IntersectionObserver' in window)) {
-    nums.forEach(countUp);
+    stats.forEach(countUp);
   } else {
-    var no = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { countUp(e.target); no.unobserve(e.target); }
-      });
-    }, { threshold: 0.6 });
-    nums.forEach(function (el) { no.observe(el); });
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { countUp(e.target); so.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    stats.forEach(function (el) { so.observe(el); });
+  }
+  function setStat(sel, n) {
+    var el = document.querySelector(sel);
+    if (!el) return;
+    el.setAttribute('data-count', String(n));
+    if (el.textContent !== '0') el.textContent = n;   // already counted up
   }
 
-  /* ── Pillar cycle ─────────────────────────────────── */
-  var pillars = document.querySelectorAll('#pillars .pillar');
-  if (pillars.length && !reduced) {
-    var i = 0;
-    pillars[0].classList.add('on');
+  /* ── Rotating role line ───────────────────────────── */
+  var roles = [
+    'People · Business · Technology',
+    'GenAI platform architecture',
+    'Enterprise RAG & agentic workflows',
+    'Org-wide Python ownership',
+    'Mentoring engineers, not managing tickets',
+    'Writer, occasional researcher'
+  ];
+  var roleEl = document.getElementById('role');
+  if (!reduced) {
+    var ri = 0;
     setInterval(function () {
-      pillars[i].classList.remove('on');
-      i = (i + 1) % pillars.length;
-      pillars[i].classList.add('on');
-    }, 1900);
-  } else {
-    pillars.forEach(function (p) { p.classList.add('on'); });
+      roleEl.classList.add('out');
+      setTimeout(function () {
+        ri = (ri + 1) % roles.length;
+        roleEl.textContent = roles[ri];
+        roleEl.classList.remove('out');
+      }, 320);
+    }, 3400);
   }
 
   /* ── Timeline accordion ───────────────────────────── */
@@ -903,66 +940,92 @@
     });
   });
 
-  /* ── Latest posts, pulled from the blog ───────────── */
+  /* ── Helpers for feed rendering ───────────────────── */
   function el(tag, cls, text) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
-    if (text) n.textContent = text;   // textContent, so feed copy can't inject markup
+    if (text) n.textContent = text;   // textContent: feed copy can't inject markup
     return n;
+  }
+  function row(href, badge, title, sub, subCls) {
+    var a = el('a', 'row-item');
+    a.href = href; a.target = '_blank'; a.rel = 'noopener';
+    a.appendChild(el('span', 'row-badge' + (badge.gray ? ' gray' : ''), badge.text));
+    var t = el('span', 'row-text');
+    t.appendChild(el('span', 'row-title', title));
+    if (sub) t.appendChild(el('span', subCls || 'row-meta', sub));
+    a.appendChild(t);
+    var ar = el('span', 'row-arrow', '↗');
+    ar.setAttribute('aria-hidden', 'true');
+    a.appendChild(ar);
+    return a;
+  }
+  function fill(id, nodes) {
+    if (!nodes.length) return;
+    var host = document.getElementById(id);
+    host.textContent = '';
+    nodes.forEach(function (n) { host.appendChild(n); });
   }
   function shortDate(iso) {
     var d = new Date(iso + 'T00:00:00');
-    if (isNaN(d)) return '';
-    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    return isNaN(d) ? '' : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   }
-  fetch('https://tech.anujsadani.in/data/articles.json', { cache: 'no-cache' })
+
+  /* ── Latest essays ────────────────────────────────── */
+  fetch(BLOG + '/data/articles.json', { cache: 'no-cache' })
     .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(r.status)); })
     .then(function (list) {
       if (!Array.isArray(list) || !list.length) return;
-
-      // Keep the essay counter honest without hand-editing it.
-      var counter = document.querySelector('.metric-num[data-count="26"]');
-      if (counter) {
-        counter.setAttribute('data-count', String(list.length));
-        var val = counter.querySelector('.val');
-        if (val && val.textContent !== '0') val.textContent = list.length;
-      }
-
+      setStat('.stat-num[data-count="26"]', list.length);
       var top = list.slice().sort(function (a, b) {
         return (b.date || '').localeCompare(a.date || '');
       }).slice(0, 3);
-
-      var frag = document.createDocumentFragment();
-      top.forEach(function (p) {
-        var a = el('a', 'row-item');
-        a.href = p.shareUrl || ('https://tech.anujsadani.in/' + p.slug + '/');
-        a.target = '_blank';
-        a.rel = 'noopener';
-        a.appendChild(el('span', 'row-badge', shortDate(p.date) || 'Essay'));
-        var text = el('span', 'row-text');
-        text.appendChild(el('span', 'row-title', p.title || p.slug));
-        if (p.desc) text.appendChild(el('span', 'row-desc', p.desc));
-        a.appendChild(text);
-        var arrow = el('span', 'row-arrow', '↗');
-        arrow.setAttribute('aria-hidden', 'true');
-        a.appendChild(arrow);
-        frag.appendChild(a);
-      });
-
-      var host = document.getElementById('posts');
-      host.textContent = '';
-      host.appendChild(frag);
+      fill('posts', top.map(function (p) {
+        return row(
+          p.shareUrl || (BLOG + '/' + p.slug + '/'),
+          { text: shortDate(p.date) || 'Essay' },
+          p.title || p.slug,
+          p.desc, 'row-desc'
+        );
+      }));
     })
-    .catch(function () { /* offline or feed moved — the static fallback row stays */ });
+    .catch(function () { /* fallback row stays */ });
+
+  /* ── Papers, books & digital ──────────────────────── */
+  fetch(BLOG + '/data/publications.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(r.status)); })
+    .then(function (d) {
+      var papers = Array.isArray(d.papers) ? d.papers : [];
+      var books = Array.isArray(d.books) ? d.books : [];
+      var digital = Array.isArray(d.digital) ? d.digital : [];
+
+      if (papers.length) {
+        setStat('.stat-num[data-count="3"]', papers.length);
+        fill('papers', papers.map(function (p) {
+          return row(p.url, { text: p.badge || 'Paper' }, p.title,
+                     [p.id, p.cat, p.dateDisplay].filter(Boolean).join(' · '));
+        }));
+      }
+
+      if (books.length || digital.length) {
+        setStat('.stat-num[data-count="6"]', books.length + digital.length);
+        var nodes = books.map(function (b) {
+          return row(b.url, { text: 'Book' }, b.title, b.meta || b.subtitle);
+        }).concat(digital.map(function (g) {
+          return row(g.url, { text: 'Ko-fi', gray: true }, g.title, null);
+        }));
+        fill('books', nodes);
+      }
+    })
+    .catch(function () { /* fallback rows stay */ });
 
   /* ── Copy email ───────────────────────────────────── */
-  var toast = document.getElementById('toast');
-  var toastTimer;
+  var toast = document.getElementById('toast'), timer;
   function say(msg) {
     toast.textContent = msg;
     toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2200);
+    clearTimeout(timer);
+    timer = setTimeout(function () { toast.classList.remove('show'); }, 2300);
   }
   var copyBtn = document.getElementById('copy-email');
   copyBtn.addEventListener('click', function () {
@@ -972,9 +1035,7 @@
         function () { say('✓  ' + email + '  copied'); },
         function () { say(email); }
       );
-    } else {
-      say(email);
-    }
+    } else { say(email); }
   });
 })();
 </script>
