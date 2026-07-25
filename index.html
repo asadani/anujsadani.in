@@ -329,7 +329,31 @@
   }
   .pillar-block:hover .pillar-word::after { transform: scaleX(1); }
   .pillar-num { font-family: var(--mono); font-size: 11px; color: var(--text-subtle); display: block; margin-bottom: 8px; letter-spacing: 0.1em; }
-  .pillar-body p { font-size: 16px; line-height: 1.7; color: var(--text-body); }
+  .pillar-body p { font-size: 16px; line-height: 1.72; color: var(--text-body); }
+  .pillar-body p + p { margin-top: 13px; }
+  /* The one concession to CV-speak — deliberately quieter than the belief above it. */
+  .practice {
+    font-size: 13.5px !important; line-height: 1.6 !important; color: var(--text-subtle) !important;
+    margin-top: 18px !important; padding-top: 14px; border-top: 1px solid var(--border-light);
+  }
+  .practice span {
+    font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-right: 9px;
+  }
+
+  .gt { color: var(--accent); font-family: var(--mono); font-size: 0.62em; vertical-align: 0.1em; padding: 0 0.06em; font-weight: 400; }
+
+  .creed {
+    margin-top: 46px; padding: 28px 32px; border-radius: 16px;
+    background: var(--surface-tint); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent); position: relative;
+  }
+  .creed-label {
+    display: block; font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  .creed p { font-family: var(--serif); font-size: 17.5px; line-height: 1.62; color: var(--text-body); }
+  .creed p + p { margin-top: 12px; color: var(--text); font-style: italic; }
   .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
   .tag {
     font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.02em; color: var(--text-muted);
@@ -504,7 +528,7 @@
     <span class="nav-name">Anuj Sadani</span>
   </a>
   <div class="nav-links">
-    <a href="#focus">Focus</a>
+    <a href="#philosophy">Philosophy</a>
     <a href="#journey">Journey</a>
     <a href="#writing">Writing</a>
     <a href="#shelf">Shelf</a>
@@ -592,12 +616,12 @@
     </div>
   </div>
 
-  <section class="section" id="focus">
+  <section class="section" id="philosophy">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-label">Focus</span>
-        <h2 class="sec-title">Three things, in this order</h2>
-        <p class="sec-sub">The technology is rarely the hard part. The hard part is a team that can carry it and a business that can bet on it.</p>
+        <span class="sec-label">Philosophy</span>
+        <h2 class="sec-title">People <span class="gt">&gt;</span> Business <span class="gt">&gt;</span> Technology</h2>
+        <p class="sec-sub">Not a ranking of what is interesting — an order of operations. I have yet to see a hard engineering problem that was not, one layer down, a question about this order.</p>
       </div>
 
       <div class="reveal">
@@ -607,8 +631,9 @@
             <h3 class="pillar-word">People</h3>
           </div>
           <div class="pillar-body">
-            <p>I lead and mentor a team of 12+ Python and ML engineers on 90-day growth plans, and hire for talent density over headcount. The goal is a room where good engineers get better rather than merely busier.</p>
-            <div class="tags"><span class="tag">mentorship</span><span class="tag">talent density</span><span class="tag">growth plans</span><span class="tag">hiring</span></div>
+            <p>People come first because they are the only part that compounds. Systems decay, frameworks get replaced, and the roadmap you defend today will be rewritten. What remains is the judgement in the room — and judgement is grown, not hired in finished form.</p>
+            <p>So I treat mentoring as the actual work, not the overhead around it. If the team ends a year abler than it started, the systems tend to follow.</p>
+            <p class="practice"><span>In practice</span> mentoring 12+ Python and ML engineers, hiring for density over headcount.</p>
           </div>
         </article>
 
@@ -618,8 +643,9 @@
             <h3 class="pillar-word">Business</h3>
           </div>
           <div class="pillar-body">
-            <p>Requirements become technical OKRs, and hype becomes an honest bet with a number attached. One example: a hybrid ML+AI design that cut operating cost 30–40% against an LLM-only baseline, same outcome by a cheaper route.</p>
-            <div class="tags"><span class="tag">technical OKRs</span><span class="tag">cost efficiency</span><span class="tag">stakeholders</span><span class="tag">roadmaps</span></div>
+            <p>Business sits in the middle because it is the honest translator. It is where an idea has to survive a question engineers would rather skip: what does this change for someone who does not care how it works?</p>
+            <p>Engineering that cannot answer that gets decided for it, by people further from the code. I would rather make the argument myself, with a number attached.</p>
+            <p class="practice"><span>In practice</span> turning requirements into technical OKRs, and hype into bets with a cost attached.</p>
           </div>
         </article>
 
@@ -629,10 +655,17 @@
             <h3 class="pillar-word">Technology</h3>
           </div>
           <div class="pillar-body">
-            <p>Enterprise RAG platforms, agentic workflows and evaluation pipelines, plus ownership of the org-wide Python stack: async performance, secure SDLC, and what actually holds up once it is running on Kubernetes.</p>
-            <div class="tags"><span class="tag">RAG</span><span class="tag">agents</span><span class="tag">FastAPI</span><span class="tag">K8s / EKS</span><span class="tag">evals</span><span class="tag">AWS</span></div>
+            <p>Technology comes last, and I say that as the person who enjoys it most. It is the layer with the best feedback loops and the least ambiguity, which is exactly why it is so tempting to start there — picking the stack is easier than admitting you have not agreed on the problem.</p>
+            <p>Put last, it becomes leverage. Put first, it becomes a very expensive opinion.</p>
+            <p class="practice"><span>In practice</span> enterprise RAG, agentic workflows, evals, and the org-wide Python stack.</p>
           </div>
         </article>
+      </div>
+
+      <div class="creed reveal">
+        <span class="creed-label">On imbalance</span>
+        <p>The order is useful mainly because of what it catches when it slips. Technology chosen first, the business case retrofitted around it, and people quietly absorbing the difference — that pattern has a familiar ending, and it is never fixed by a better framework.</p>
+        <p>An imbalance here is a signal, not a style. It asks to be corrected before anything downstream of it will hold.</p>
       </div>
     </div>
   </section>
@@ -739,7 +772,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="sec-label">Shelf</span>
-        <h2 class="sec-title">Papers, books, paperwork</h2>
+        <h2 class="sec-title">Papers and books</h2>
         <p class="sec-sub">Ideas that held up well enough to write down formally.</p>
       </div>
 
@@ -768,28 +801,6 @@
           </a>
         </div>
 
-        <div class="subhead">Patents · filed, pending USPTO review</div>
-        <div class="stack">
-          <div class="row-item">
-            <span class="row-badge gray">19/375,298</span>
-            <span class="row-text"><span class="row-title">System and Method for Optimizing Queries for Extracting Entities from Documents</span></span>
-          </div>
-          <div class="row-item">
-            <span class="row-badge gray">19/375,285</span>
-            <span class="row-text"><span class="row-title">System and Method for Optimizing Queries for Extracting Entities and Entity Values from Documents</span></span>
-          </div>
-          <div class="row-item">
-            <span class="row-badge gray">19/432,186</span>
-            <span class="row-text"><span class="row-title">System and Method for Extraction of Entities from Documents</span></span>
-          </div>
-        </div>
-
-        <div class="subhead">Education &amp; certification</div>
-        <div class="chips">
-          <span class="chip"><b>B.E.</b> Information Technology · GCoE Amravati</span>
-          <span class="chip"><b>IBM</b> Enterprise Design Thinking Co-Creator</span>
-          <span class="chip"><b>CSM</b> Certified ScrumMaster · Scrum Alliance</span>
-        </div>
       </div>
     </div>
   </section>
