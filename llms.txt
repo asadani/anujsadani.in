@@ -1,0 +1,38 @@
+# Anuj Sadani
+
+> Principal Software Development Engineer at Infrrd, based in Pune, India. Builds enterprise GenAI systems — RAG platforms, agentic workflows, evaluation pipelines — and leads the teams that build them. Owns the organisation-wide Python stack. Writes about AI engineering, infrastructure, and security.
+
+Working principle: people, then business, then technology. Not a ranking of what is interesting, but an order of operations — when it inverts, something downstream breaks.
+
+## Current role
+
+- [Infrrd](https://www.infrrd.ai/): Principal Software Development Engineer, 2021–present. Architected the core GenAI and ML capabilities behind Infrrd's Leader placement in the Gartner Magic Quadrant. Owns the enterprise-wide Python stack. Designed a hybrid ML+AI system with 30–40% lower operating cost than an LLM-only implementation. Leads and mentors 12+ Python/ML engineers.
+
+## Background
+
+- Delivery Hero, Berlin: Software Engineer II, 2020. Python/Flask microservices for a high-traffic logistics platform.
+- Nvidia, Pune: Senior Tools Development Engineer, 2009–2020. Led 8+ engineers on embedded automation frameworks and internal engineering tooling.
+- B.E. Information Technology, Government College of Engineering, Amravati.
+
+## Writing
+
+- [Tech blog](https://tech.anujsadani.in): essays on AI engineering, infrastructure, and security.
+- [Article index (JSON)](https://tech.anujsadani.in/data/articles.json): machine-readable list of all essays with titles, descriptions, dates, and tags.
+- [Dev Panda & Vibe Dragon](https://devpandaandvibedragon.substack.com/): Substack newsletter.
+- [Medium](https://medium.com/@anuj.sadani)
+
+## Research and books
+
+- [Publications (JSON)](https://tech.anujsadani.in/data/publications.json): machine-readable list of papers, books, and digital releases.
+- Locale-Conditioned Few-Shot Prompting Mitigates Demonstration Regurgitation in On-Device PII Substitution with Small Language Models — [arXiv:2605.13538](https://arxiv.org/abs/2605.13538)
+- Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows — [arXiv:2604.21816](https://arxiv.org/abs/2604.21816)
+- The Great Recalibration: The 2026 Pivot from Generalist Wrappers to Sovereign Application Layers and Industrialized Services — [SSRN:6071412](https://dx.doi.org/10.2139/ssrn.6071412)
+- The Clean Vibe Coder: A Code of Conduct for Programmers in the Age of AI Agents — [Amazon](https://www.amazon.in/dp/B0H2ZBMFR4)
+
+## Elsewhere
+
+- [GitHub](https://github.com/asadani)
+- [LinkedIn](https://linkedin.com/in/anujsadani)
+- [Ko-fi](https://ko-fi.com/anujsadani)
+- [Résumé (PDF)](https://anujsadani.in/assets/Anuj-Sadani-Resume.pdf)
+- Contact: anuj.k.sadani@gmail.com
