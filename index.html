@@ -667,7 +667,7 @@
         <span class="stat-div" aria-hidden="true"></span>
         <a class="stat" href="#shelf"><span class="stat-num" data-count="3">0</span><span class="stat-txt">papers</span></a>
         <span class="stat-div" aria-hidden="true"></span>
-        <a class="stat" href="#shelf"><span class="stat-num" data-count="7">0</span><span class="stat-txt">books &amp; digital</span></a>
+        <a class="stat" href="#shelf"><span class="stat-num" data-count="8">0</span><span class="stat-txt">books &amp; digital</span></a>
       </div>
     </div>
   </section>
@@ -1086,7 +1086,7 @@
       }
 
       if (books.length || digital.length) {
-        setStat('.stat-num[data-count="7"]', books.length + digital.length);
+        setStat('.stat-num[data-count="8"]', books.length + digital.length);
         var nodes = books.map(function (b) {
           return row(b.url, { text: 'Book' }, b.title, b.meta || b.subtitle);
         }).concat(digital.map(function (g) {
