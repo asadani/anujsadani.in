@@ -484,6 +484,24 @@
     transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   }
   a.row-item:hover { border-color: var(--accent-border); transform: translateX(4px); box-shadow: var(--shadow-md); }
+
+  /* Digital titles have two destinations: read free here, or buy the PDF on
+     Ko-fi. The row becomes a container so both can be real links -- an anchor
+     cannot legally contain another. */
+  .row-item--dual { display: flex; align-items: stretch; gap: 0; padding: 0; overflow: hidden; }
+  .row-item--dual:hover { border-color: var(--accent-border); transform: translateX(4px); box-shadow: var(--shadow-md); }
+  .row-main {
+    flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 14px;
+    padding: 16px 18px; text-decoration: none; color: inherit;
+  }
+  .row-kofi {
+    flex-shrink: 0; display: flex; align-items: center; padding: 0 16px;
+    border-left: 1px solid var(--border); text-decoration: none;
+    transition: background 0.2s;
+  }
+  .row-kofi:hover { background: var(--accent-bg); }
+  .row-kofi img { display: block; width: 20px; height: 20px; }
+  .row-badge-ico { width: 12px; height: 12px; margin-right: 5px; vertical-align: -1.5px; }
   .row-badge {
     font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
     text-transform: uppercase; padding: 4px 9px; border-radius: 6px; flex-shrink: 0;
@@ -1025,6 +1043,34 @@
     if (text) n.textContent = text;   // textContent: feed copy can't inject markup
     return n;
   }
+  // Digital titles: the row reads free on this site, the Ko-fi button buys the
+  // typeset PDF. Two destinations means the row cannot itself be an anchor.
+  function dualRow(g) {
+    var wrap = el('div', 'row-item row-item--dual');
+    var main = el('a', 'row-main');
+    main.href = g.hosted;
+    var badge = el('span', 'row-badge gray');
+    badge.innerHTML = '<svg class="row-badge-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.4 5.2 8.3 4.6 5.5 4.6H3v13h2.5c2.8 0 4.9.6 6.5 1.9"/><path d="M12 6.5c1.6-1.3 3.7-1.9 6.5-1.9H21v13h-2.5c-2.8 0-4.9.6-6.5 1.9"/><path d="M12 6.5v13"/></svg>' + 'Read';
+    main.appendChild(badge);
+    var t = el('span', 'row-text');
+    t.appendChild(el('span', 'row-title', g.title));
+    main.appendChild(t);
+    var ar = el('span', 'row-arrow', '↗');
+    ar.setAttribute('aria-hidden', 'true');
+    main.appendChild(ar);
+    wrap.appendChild(main);
+
+    var kofi = el('a', 'row-kofi');
+    kofi.href = g.url; kofi.target = '_blank'; kofi.rel = 'noopener';
+    kofi.title = 'Buy the typeset PDF on Ko-fi';
+    kofi.setAttribute('aria-label', 'Buy the typeset PDF of ' + g.title + ' on Ko-fi');
+    var img = el('img');
+    img.src = 'assets/icon-kofi.png'; img.alt = ''; img.width = 20; img.height = 20;
+    img.loading = 'lazy';
+    kofi.appendChild(img);
+    wrap.appendChild(kofi);
+    return wrap;
+  }
   function row(href, badge, title, sub, subCls) {
     var a = el('a', 'row-item');
     a.href = href; a.target = '_blank'; a.rel = 'noopener';
@@ -1090,7 +1136,7 @@
         var nodes = books.map(function (b) {
           return row(b.url, { text: 'Book' }, b.title, b.meta || b.subtitle);
         }).concat(digital.map(function (g) {
-          return row(g.url, { text: 'Ko-fi', gray: true }, g.title, null);
+          return g.hosted ? dualRow(g) : row(g.url, { text: 'Ko-fi', gray: true }, g.title, null);
         }));
         fill('books', nodes);
       }
