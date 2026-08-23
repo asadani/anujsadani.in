@@ -1048,7 +1048,10 @@
   function dualRow(g) {
     var wrap = el('div', 'row-item row-item--dual');
     var main = el('a', 'row-main');
-    main.href = g.hosted;
+    // hosted is a site-relative path in the feed, which resolves against
+    // tech.anujsadani.in where the feed lives -- not against this origin.
+    main.href = /^https?:/.test(g.hosted) ? g.hosted : BLOG + g.hosted;
+    main.target = '_blank'; main.rel = 'noopener';
     var badge = el('span', 'row-badge gray');
     badge.innerHTML = '<svg class="row-badge-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.4 5.2 8.3 4.6 5.5 4.6H3v13h2.5c2.8 0 4.9.6 6.5 1.9"/><path d="M12 6.5c1.6-1.3 3.7-1.9 6.5-1.9H21v13h-2.5c-2.8 0-4.9.6-6.5 1.9"/><path d="M12 6.5v13"/></svg>' + 'Read';
     main.appendChild(badge);
