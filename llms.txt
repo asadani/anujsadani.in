@@ -1,18 +1,26 @@
 # Anuj Sadani
 
-> Principal Software Development Engineer at Infrrd, based in Pune, India. Builds enterprise GenAI systems — RAG platforms, agentic workflows, evaluation pipelines — and leads the teams that build them. Owns the organisation-wide Python stack. Writes about AI engineering, infrastructure, and security.
+> Principal Engineer at Infrrd, based in Pune, India. Builds enterprise GenAI systems — RAG platforms, agent tooling on MCP, fine-tuned small models, model routing and evaluation — and leads the teams that build them. Owns the organisation-wide Python stack. Writes about AI engineering, infrastructure, and security.
 
 Working principle: people, then business, then technology. Not a ranking of what is interesting, but an order of operations — when it inverts, something downstream breaks.
 
 ## Current role
 
-- [Infrrd](https://www.infrrd.ai/): Principal Software Development Engineer, 2021–present. Architected the core GenAI and ML capabilities behind Infrrd's Leader placement in the Gartner Magic Quadrant. Owns the enterprise-wide Python stack. Designed a hybrid ML+AI system with 30–40% lower operating cost than an LLM-only implementation. Leads and mentors 12+ Python/ML engineers.
+- [Infrrd](https://www.infrrd.ai/): Principal Engineer, Jan 2021–present (Principal Software Development Engineer since May 2025; ML Engineering Technical Architect 2021–2025). Owns the GenAI and ML architecture behind a document extraction platform that peaks around 1M pages a day, held to 1–4¢ per page depending on document class. Designed the hybrid ML+LLM routing that keeps it there: 30–40% cheaper than an LLM-only design. Built the MCP-based agent tooling layer for mortgage document processing. Fine-tunes small open models for entity extraction in the production path. Owns the enterprise-wide Python stack. Leads 12+ Python/ML engineers across three teams.
 
 ## Background
 
-- Delivery Hero, Berlin: Software Engineer II, 2020. Python/Flask microservices for a high-traffic logistics platform.
-- Nvidia, Pune: Senior Tools Development Engineer, 2009–2020. Led 8+ engineers on embedded automation frameworks and internal engineering tooling.
+- Delivery Hero, Berlin: Software Engineer II, Feb–Dec 2020. Python/Flask microservices for a high-traffic logistics platform.
+- Nvidia, Pune: Aug 2009–Jan 2020, ending as Senior Tools Development Engineer. Led 8+ engineers on embedded automation frameworks and internal engineering tooling.
 - B.E. Information Technology, Government College of Engineering, Amravati.
+
+## Technical scope
+
+- Generative AI: RAG, agentic systems, Model Context Protocol (MCP), tool design and gating, model evaluation, LLMs, SLMs, vision-language models, embeddings, vector databases
+- Frameworks: LangChain, LangGraph, LlamaIndex, CrewAI, PydanticAI, DSPy
+- Serving and routing: AWS Bedrock, Amazon SageMaker, Vertex AI, vLLM, Ollama, LiteLLM, OpenRouter, multi-provider routing and fallback
+- Training and data: fine-tuning (LoRA, QLoRA), quantization, synthetic data generation, YOLO, OCR, spaCy, Databricks
+- Platform: Python, FastAPI, Flask, microservices, AWS, Docker, Kubernetes, Terraform, PostgreSQL, MongoDB
 
 ## Writing
 
@@ -29,10 +37,15 @@ Working principle: people, then business, then technology. Not a ranking of what
 - The Great Recalibration: The 2026 Pivot from Generalist Wrappers to Sovereign Application Layers and Industrialized Services — [SSRN:6071412](https://dx.doi.org/10.2139/ssrn.6071412)
 - The Clean Vibe Coder: A Code of Conduct for Programmers in the Age of AI Agents — [Amazon](https://www.amazon.in/dp/B0H2ZBMFR4)
 
+## Patents
+
+- Three applications pending with the USPTO on query optimization and entity extraction from documents: 19/375,298, 19/375,285, 19/432,186.
+
 ## Elsewhere
 
 - [GitHub](https://github.com/asadani)
 - [LinkedIn](https://linkedin.com/in/anujsadani)
+- [PyPI](https://pypi.org/user/anujs-pypi/)
 - [Ko-fi](https://ko-fi.com/anujsadani)
 - [Résumé (PDF)](https://anujsadani.in/assets/Anuj-Sadani-Resume.pdf)
 - Contact: anuj.k.sadani@gmail.com

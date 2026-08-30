@@ -1,1 +1,5 @@
 .DS_Store
+
+# Résumé sources and build machinery. The published artifact is the PDF in
+# assets/; the markdown, print wrapper and design canvas stay local.
+resume/
