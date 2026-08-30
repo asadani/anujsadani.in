@@ -47,5 +47,7 @@ Working principle: people, then business, then technology. Not a ranking of what
 - [LinkedIn](https://linkedin.com/in/anujsadani)
 - [PyPI](https://pypi.org/user/anujs-pypi/)
 - [Ko-fi](https://ko-fi.com/anujsadani)
+- [Résumé (Markdown)](https://anujsadani.in/resume.md) — plain text, preferred for machine reading
+- [Résumé (JSON Resume schema)](https://anujsadani.in/resume.json)
 - [Résumé (PDF)](https://anujsadani.in/assets/Anuj-Sadani-Resume.pdf)
 - Contact: anuj.k.sadani@gmail.com
