@@ -689,11 +689,11 @@
       </div>
 
       <div class="stats reveal">
-        <a class="stat" href="#writing"><span class="stat-num" data-count="35">0</span><span class="stat-txt">essays</span></a>
+        <a class="stat" href="#writing"><span class="stat-num" data-count="36">0</span><span class="stat-txt">essays</span></a>
         <span class="stat-div" aria-hidden="true"></span>
         <a class="stat" href="#shelf"><span class="stat-num" data-count="3">0</span><span class="stat-txt">papers</span></a>
         <span class="stat-div" aria-hidden="true"></span>
-        <a class="stat" href="#shelf"><span class="stat-num" data-count="10">0</span><span class="stat-txt">books &amp; digital</span></a>
+        <a class="stat" href="#shelf"><span class="stat-num" data-count="12">0</span><span class="stat-txt">books &amp; digital</span></a>
       </div>
     </div>
   </section>
@@ -1114,7 +1114,7 @@
     .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(r.status)); })
     .then(function (list) {
       if (!Array.isArray(list) || !list.length) return;
-      setStat('.stat-num[data-count="35"]', list.length);
+      setStat('.stat-num[data-count="36"]', list.length);
       var top = list.slice().sort(function (a, b) {
         return (b.date || '').localeCompare(a.date || '');
       }).slice(0, 3);
@@ -1146,7 +1146,7 @@
       }
 
       if (books.length || digital.length) {
-        setStat('.stat-num[data-count="10"]', books.length + digital.length);
+        setStat('.stat-num[data-count="12"]', books.length + digital.length);
         var nodes = books.map(function (b) {
           return row(b.url, { text: 'Book' }, b.title, b.meta || b.subtitle);
         }).concat(digital.map(function (g) {
