@@ -48,7 +48,6 @@ Python, FastAPI, Flask, microservices, AWS, Docker, Kubernetes, PostgreSQL (RDBM
 - Lead engineering within Citi's Common Platform Engineering GenAI team, building the foundational technology that powers generative AI across the organization.
 - Set technical direction and define architecture while developing the engineers on the team.
 - Focus on stronger evaluation, ingestion pipelines and infrastructure that scales.
-- Building a software engineering team in Pune to scale Citi's AI products and solutions across the bank.
 
 ### Infrrd, Bengaluru, India · Jan 2021 – Jun 2026
 

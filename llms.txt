@@ -6,7 +6,7 @@ Working principle: people, then business, then technology. Not a ranking of what
 
 ## Current role
 
-- Citi, Pune: Senior Vice President, GenAI Platform, Sep 2026–present. Leads engineering within Citi's Common Platform Engineering GenAI team, building the foundational technology that powers generative AI across the organisation: technical direction, architecture, and the engineers who build it. Focus areas are stronger evals, ingestion pipelines, and infrastructure that scales. Building a software engineering team in Pune to scale Citi's AI products and solutions.
+- Citi, Pune: Senior Vice President, GenAI Platform, Sep 2026–present. Leads engineering within Citi's Common Platform Engineering GenAI team, building the foundational technology that powers generative AI across the organisation: technical direction, architecture, and the engineers who build it. Focus areas are stronger evals, ingestion pipelines, and infrastructure that scales.
 
 ## Background
 
