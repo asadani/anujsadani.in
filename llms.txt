@@ -1,15 +1,16 @@
 # Anuj Sadani
 
-> Principal Engineer at Infrrd, based in Pune, India. Builds enterprise GenAI systems — RAG platforms, agent tooling on MCP, fine-tuned small models, model routing and evaluation — and leads the teams that build them. Owns the organisation-wide Python stack. Writes about AI engineering, infrastructure, and security.
+> Senior Vice President, GenAI Platform at Citi, based in Pune, India. Builds enterprise GenAI systems — RAG platforms, agent tooling on MCP, fine-tuned small models, model routing and evaluation — and leads the teams that build them. Writes about AI engineering, infrastructure, and security.
 
 Working principle: people, then business, then technology. Not a ranking of what is interesting, but an order of operations — when it inverts, something downstream breaks.
 
 ## Current role
 
-- [Infrrd](https://www.infrrd.ai/): Principal Engineer, Jan 2021–present (Principal Software Development Engineer since May 2025; ML Engineering Technical Architect 2021–2025). Owns the GenAI and ML architecture behind a document extraction platform that peaks around 1M pages a day, held to 1–4¢ per page depending on document class. Designed the hybrid ML+LLM routing that keeps it there: 30–40% cheaper than an LLM-only design. Built the MCP-based agent tooling layer for mortgage document processing. Fine-tunes small open models for entity extraction in the production path. Owns the enterprise-wide Python stack. Leads 12+ Python/ML engineers across three teams.
+- Citi, Pune: Senior Vice President, GenAI Platform, Sep 2026–present. Leads engineering within Citi's Common Platform Engineering GenAI team, building the foundational technology that powers generative AI across the organisation: technical direction, architecture, and the engineers who build it. Focus areas are stronger evals, ingestion pipelines, and infrastructure that scales. Building a software engineering team in Pune to scale Citi's AI products and solutions.
 
 ## Background
 
+- [Infrrd](https://www.infrrd.ai/): Principal Engineer, Jan 2021–Jun 2026 (Principal Software Development Engineer since May 2025; ML Engineering Technical Architect 2021–2025). Owned the GenAI and ML architecture behind a document extraction platform that peaks around 1M pages a day, held to 1–4¢ per page depending on document class. Designed the hybrid ML+LLM routing that keeps it there: 30–40% cheaper than an LLM-only design. Built the MCP-based agent tooling layer for mortgage document processing. Fine-tuned small open models for entity extraction in the production path. Owned the enterprise-wide Python stack. Led 12+ Python/ML engineers across three teams.
 - Delivery Hero, Berlin: Software Engineer II, Feb–Dec 2020. Python/Flask microservices for a high-traffic logistics platform.
 - Nvidia, Pune: Aug 2009–Jan 2020, ending as Senior Tools Development Engineer. Led 8+ engineers on embedded automation frameworks and internal engineering tooling.
 - B.E. Information Technology, Government College of Engineering, Amravati.
