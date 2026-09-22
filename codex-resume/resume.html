@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Resume of Anuj Sadani, Principal Engineer specializing in AI/ML systems and technical leadership.">
+  <title>Anuj Sadani | Resume</title>
+  <style>
+    :root { --ink:#18212b; --muted:#51606f; --accent:#0d5c86; --rule:#cfd8de; --paper:#fff; --wash:#eef4f6; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#e8edf0; color:var(--ink); font:10.2pt/1.43 Arial, Helvetica, sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    .page { width:210mm; min-height:297mm; margin:12mm auto; padding:13mm 15mm 12mm; background:var(--paper); box-shadow:0 3px 18px rgba(20,35,45,.16); }
+    header { border-bottom:4px solid var(--accent); padding-bottom:10px; }
+    h1 { margin:0 0 2px; font-size:27pt; line-height:1.05; letter-spacing:-.6px; color:#103f5c; }
+    .headline { margin:0; color:var(--accent); font-size:11pt; font-weight:bold; letter-spacing:.55px; text-transform:uppercase; }
+    .contact { margin-top:8px; color:var(--muted); font-size:9.1pt; }
+    .contact span { white-space:nowrap; }
+    .contact span + span::before { content:" | "; color:#93a0aa; padding:0 2px; }
+    section { margin-top:13px; }
+    h2 { margin:0 0 6px; color:#103f5c; font-size:10.3pt; letter-spacing:1.15px; text-transform:uppercase; border-bottom:1px solid var(--rule); padding-bottom:3px; }
+    p { margin:0; }
+    .profile { font-size:10pt; }
+    .strengths { display:grid; grid-template-columns:1fr 1fr; gap:4px 18px; font-size:9.4pt; }
+    .strengths p { break-inside:avoid; }
+    .strengths b { color:#103f5c; }
+    .job { margin:0 0 11px; break-inside:avoid; page-break-inside:avoid; }
+    .job-header { display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
+    .company { color:#103f5c; font-size:11pt; font-weight:bold; }
+    .location, .date { color:var(--muted); font-size:9.1pt; white-space:nowrap; }
+    .roles { margin:1px 0 4px; color:#273a48; font-size:9.5pt; font-weight:bold; }
+    .scope { padding:4px 7px; margin:5px 0; background:var(--wash); color:#405563; font-size:9pt; }
+    ul { margin:4px 0 0; padding-left:17px; }
+    li { margin:0 0 3px; }
+    .compact li { margin-bottom:2px; }
+    .two-col { display:grid; grid-template-columns:1.2fr .8fr; gap:20px; }
+    .mini { font-size:9.2pt; }
+    .mini p + p { margin-top:4px; }
+    footer { margin-top:11px; color:var(--muted); font-size:8.3pt; text-align:right; }
+    @page { size:A4; margin:0; }
+    @media print { body { background:#fff; } .page { width:auto; min-height:0; margin:0; box-shadow:none; } }
+    @media screen and (max-width:850px) { .page { width:auto; min-height:100vh; margin:0; padding:22px 20px; } .job-header { align-items:flex-start; flex-direction:column; gap:0; } .strengths,.two-col { grid-template-columns:1fr; gap:8px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Anuj Sadani</h1>
+      <p class="headline">Principal Engineer | AI/ML Systems | Technical Leadership</p>
+      <p class="contact"><span>Pune, India</span><span>+91 9766880844</span><span><a href="mailto:anuj.k.sadani@gmail.com">anuj.k.sadani@gmail.com</a></span><span><a href="https://anujsadani.in">anujsadani.in</a></span><span><a href="https://linkedin.com/in/anujsadani">linkedin.com/in/anujsadani</a></span><span><a href="https://github.com/asadani">github.com/asadani</a></span></p>
+    </header>
+
+    <section>
+      <h2>Profile</h2>
+      <p class="profile">Principal engineer with 17 years of software development experience, including the last 3-4 years building and deploying applied ML and GenAI systems. Leads technical direction and people development while staying hands-on with production AI architecture, from model routing and fine-tuning to agent tooling and evaluation. Experience spans document intelligence, distributed systems, cloud platforms, and engineering standards.</p>
+    </section>
+
+    <section>
+      <h2>Core strengths</h2>
+      <div class="strengths">
+        <p><b>Technical leadership:</b> architecture, technical roadmaps, hiring, mentoring, performance development, team structure, engineering standards</p>
+        <p><b>Applied AI systems:</b> ML/LLM routing, RAG, agentic systems, MCP, evaluation, fine-tuning, model serving</p>
+        <p><b>Platforms:</b> Python, FastAPI, AWS, Bedrock, SageMaker, Docker, Kubernetes/EKS, Terraform, Databricks</p>
+        <p><b>Practical tooling:</b> LangChain, LangGraph, OpenRouter, LiteLLM</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <article class="job">
+        <div class="job-header"><span class="company">Infrrd</span><span class="location">Bengaluru, India</span></div>
+        <p class="roles">Principal Software Development Engineer <span class="date">| May 2025-Present</span><br>ML Engineering Technical Architect <span class="date">| Nov 2021-May 2025</span><br>Technical Specialist <span class="date">| Jan 2021-Oct 2021</span></p>
+        <p class="scope">Technical direction and people development for 12+ engineers across three teams; engineering standards and AI/ML architecture for document extraction.</p>
+        <ul>
+          <li>Led technical direction and people development across three teams, including hiring 8-10 engineers, mentoring, supporting promotions, and helping restructure teams.</li>
+          <li>Own the GenAI and ML architecture for a document-extraction platform processing about 1M pages per day, at roughly 1-4 cents per page depending on document type.</li>
+          <li>Designed and led a hybrid ML/LLM architecture: smaller models handle routine extraction and LLMs handle harder cases, reducing processing cost by 30-40% compared with an LLM-only approach.</li>
+          <li>Designed an MCP-based agent tooling layer for mortgage document processing, translating underwriting-domain rules into production tools with subject-matter experts.</li>
+          <li>Fine-tuned small open models for entity extraction and integrated model-based processing into production workflows; set organization-wide Python practices for security, application patterns, and code quality.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header"><span class="company">Delivery Hero</span><span class="location">Berlin, Germany</span></div>
+        <p class="roles">Software Engineer II <span class="date">| Feb 2020-Dec 2020</span></p>
+        <ul class="compact">
+          <li>Built and scaled Python/Flask services for real-time order processing in a distributed logistics platform.</li>
+          <li>Worked with product and engineering leadership on objectives, roadmaps, and delivery plans; partnered with data science and BI teams to put analytical workflows into production.</li>
+          <li>Contributed to reliability and incident management using Terraform, Helm, Grafana, and New Relic.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-header"><span class="company">NVIDIA</span><span class="location">Pune, India</span></div>
+        <p class="roles">Senior Tools Development Engineer <span class="date">| 2014-2020</span><br>Tools Development Engineer <span class="date">| 2010-2014</span><br>Software Quality Assurance Engineer <span class="date">| 2009-2010</span></p>
+        <ul class="compact">
+          <li>Led an 8+ person team building embedded automation frameworks and internal engineering tools supporting GPU and SoC development.</li>
+          <li>Owned tools through requirements, architecture, implementation, deployment, and long-term maintenance.</li>
+          <li>Improved engineering productivity through automation-first practices and introduced a crowdsourced contribution model for internal tooling.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="two-col">
+      <div class="mini">
+        <h2>Selected research</h2>
+        <p><b>Tool Attention Is All You Need</b> - Dynamic tool gating and lazy schema loading for scalable agentic workflows. <a href="https://arxiv.org/abs/2604.21816">arXiv, 2026</a>.</p>
+        <p><b>Locale-Conditioned Few-Shot Prompting for On-Device PII Substitution</b> - Small-language-model PII substitution. <a href="https://arxiv.org/abs/2605.13538">arXiv, 2026</a>.</p>
+        <p><b>The Great Recalibration</b> - AI application architecture and industrialized AI services. <a href="https://dx.doi.org/10.2139/ssrn.6071412">SSRN, 2026</a>.</p>
+      </div>
+      <div class="mini">
+        <h2>Patents</h2>
+        <p>Three pending US patent applications for document-entity extraction and query optimization: 19/375,298; 19/375,285; 19/432,186.</p>
+        <h2 style="margin-top:10px">Education &amp; certifications</h2>
+        <p><b>B.E., Information Technology</b><br>Government College of Engineering, Amravati | 2005-2009</p>
+        <p>Certified ScrumMaster, Scrum Alliance (Credential ID 001022708)<br>IBM Enterprise Design Thinking, Co-Creator</p>
+      </div>
+    </section>
+    <footer>Resume source: codex-resume/resume.md</footer>
+  </main>
+
+<script data-goatcounter="https://anujsadani.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

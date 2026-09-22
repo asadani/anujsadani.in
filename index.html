@@ -686,7 +686,7 @@
       </div>
 
       <div class="stats reveal">
-        <a class="stat" href="#writing"><span class="stat-num" data-count="36">0</span><span class="stat-txt">essays</span></a>
+        <a class="stat" href="#writing"><span class="stat-num" data-count="39">0</span><span class="stat-txt">essays</span></a>
         <span class="stat-div" aria-hidden="true"></span>
         <a class="stat" href="#shelf"><span class="stat-num" data-count="3">0</span><span class="stat-txt">papers</span></a>
         <span class="stat-div" aria-hidden="true"></span>
@@ -1130,7 +1130,7 @@
     .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(r.status)); })
     .then(function (list) {
       if (!Array.isArray(list) || !list.length) return;
-      setStat('.stat-num[data-count="36"]', list.length);
+      setStat('.stat-num[data-count="39"]', list.length);
       var top = list.slice().sort(function (a, b) {
         return (b.date || '').localeCompare(a.date || '');
       }).slice(0, 3);
