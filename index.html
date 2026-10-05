@@ -15,7 +15,13 @@
 <meta property="og:title" content="Anuj Sadani — People · Business · Technology">
 <meta property="og:description" content="I build AI systems and the teams that build them. Enterprise document AI at production scale, and the engineering org behind it.">
 <meta property="og:image" content="https://anujsadani.in/assets/profile-pic.jpg">
+<meta property="og:site_name" content="Anuj Sadani">
+<meta property="og:image:alt" content="Anuj Sadani">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anuj Sadani — People · Business · Technology">
+<meta name="twitter:description" content="I build AI systems and the teams that build them. Enterprise document AI at production scale, and the engineering org behind it.">
+<meta name="twitter:image" content="https://anujsadani.in/assets/profile-pic.jpg">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
 <!-- Person entity: ties every profile of mine together so search engines and
      LLM retrieval build one identity instead of guessing across sources. -->
@@ -686,11 +692,11 @@
       </div>
 
       <div class="stats reveal">
-        <a class="stat" href="#writing"><span class="stat-num" data-count="41">0</span><span class="stat-txt">essays</span></a>
+        <a class="stat" href="#writing"><span class="stat-num" data-count="44" data-stat="essays">0</span><span class="stat-txt">essays</span></a>
         <span class="stat-div" aria-hidden="true"></span>
-        <a class="stat" href="#shelf"><span class="stat-num" data-count="3">0</span><span class="stat-txt">papers</span></a>
+        <a class="stat" href="#shelf"><span class="stat-num" data-count="3" data-stat="papers">0</span><span class="stat-txt">papers</span></a>
         <span class="stat-div" aria-hidden="true"></span>
-        <a class="stat" href="#shelf"><span class="stat-num" data-count="14">0</span><span class="stat-txt">books &amp; digital</span></a>
+        <a class="stat" href="#shelf"><span class="stat-num" data-count="14" data-stat="books">0</span><span class="stat-txt">books &amp; digital</span></a>
       </div>
     </div>
   </section>
@@ -1130,7 +1136,7 @@
     .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(r.status)); })
     .then(function (list) {
       if (!Array.isArray(list) || !list.length) return;
-      setStat('.stat-num[data-count="41"]', list.length);
+      setStat('.stat-num[data-stat="essays"]', list.length);
       var top = list.slice().sort(function (a, b) {
         return (b.date || '').localeCompare(a.date || '');
       }).slice(0, 3);
@@ -1154,7 +1160,7 @@
       var digital = Array.isArray(d.digital) ? d.digital : [];
 
       if (papers.length) {
-        setStat('.stat-num[data-count="3"]', papers.length);
+        setStat('.stat-num[data-stat="papers"]', papers.length);
         fill('papers', papers.map(function (p) {
           return row(p.url, { text: p.badge || 'Paper' }, p.title,
                      [p.id, p.cat, p.dateDisplay].filter(Boolean).join(' · '));
@@ -1162,7 +1168,7 @@
       }
 
       if (books.length || digital.length) {
-        setStat('.stat-num[data-count="14"]', books.length + digital.length);
+        setStat('.stat-num[data-stat="books"]', books.length + digital.length);
         var nodes = books.map(function (b) {
           return row(b.url, { text: 'Book' }, b.title, b.meta || b.subtitle);
         }).concat(digital.map(function (g) {

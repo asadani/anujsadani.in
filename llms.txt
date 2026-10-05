@@ -26,6 +26,7 @@ Working principle: people, then business, then technology. Not a ranking of what
 ## Writing
 
 - [Tech blog](https://tech.anujsadani.in): essays on AI engineering, infrastructure, and security.
+- [Blog llms.txt](https://tech.anujsadani.in/llms.txt): full essay list with summaries, for machine reading.
 - [Article index (JSON)](https://tech.anujsadani.in/data/articles.json): machine-readable list of all essays with titles, descriptions, dates, and tags.
 - [Dev Panda & Vibe Dragon](https://devpandaandvibedragon.substack.com/): Substack newsletter.
 - [Medium](https://medium.com/@anuj.sadani)
